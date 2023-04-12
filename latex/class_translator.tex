@@ -1,0 +1,120 @@
+\hypertarget{class_translator}{}\doxysection{Translator Class Reference}
+\label{class_translator}\index{Translator@{Translator}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_translator_aa4dfde53a0baa33e93637f00fd0d0a5a}\label{class_translator_aa4dfde53a0baa33e93637f00fd0d0a5a}} 
+{\bfseries Translator} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for \mbox{\hyperlink{class_translator}{Translator}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_translator_a9c262ba866126a6a35e979a64d7e3518}\label{class_translator_a9c262ba866126a6a35e979a64d7e3518}} 
+{\bfseries $\sim$\+Translator} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \mbox{\hyperlink{class_translator}{Translator}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_translator_a862ad6ca864a3df85d7d13721d57ffdf}{detect}} (std\+::string text)
+\begin{DoxyCompactList}\small\item\em Determines whether a comment needs translation. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_translator_aff4ee83e20201e5c1c53785d9314aff4}{translate}} (std\+::string text)
+\begin{DoxyCompactList}\small\item\em Translate the given text if it is translatable. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_translator_a33777ed227a55aff4764db3862baf1a4}{get\+Translated}} () const
+\begin{DoxyCompactList}\small\item\em Get the results of the translation. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_translator_ab31d089c93d17a611307aae57599aae9}{get\+Origin\+Lang}} () const
+\begin{DoxyCompactList}\small\item\em Get the language of the original text. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_translator_a09b91774fcee8dc4f86ea4ad9c8f094b}\label{class_translator_a09b91774fcee8dc4f86ea4ad9c8f094b}} 
+\mbox{\hyperlink{class_request}{Request}} {\bfseries request}
+\item 
+\mbox{\Hypertarget{class_translator_a6ea897a68d51b330d7e1adec34e50a21}\label{class_translator_a6ea897a68d51b330d7e1adec34e50a21}} 
+std\+::string {\bfseries endpoint}
+\item 
+\mbox{\Hypertarget{class_translator_a9c6a3482859c32147e1dcbd8629794ea}\label{class_translator_a9c6a3482859c32147e1dcbd8629794ea}} 
+std\+::string {\bfseries key}
+\item 
+\mbox{\Hypertarget{class_translator_ac1a316f58de2c62ebcae34863c509777}\label{class_translator_ac1a316f58de2c62ebcae34863c509777}} 
+std\+::string {\bfseries body}
+\item 
+\mbox{\Hypertarget{class_translator_a8a29334f0e8b2b8797efe9d96dcf6b6d}\label{class_translator_a8a29334f0e8b2b8797efe9d96dcf6b6d}} 
+std\+::string {\bfseries origin\+Lang}
+\item 
+\mbox{\Hypertarget{class_translator_a6852b08a93f0473515edf88568fcfc46}\label{class_translator_a6852b08a93f0473515edf88568fcfc46}} 
+std\+::string {\bfseries target\+Lang} = \char`\"{}en\char`\"{}
+\item 
+\mbox{\Hypertarget{class_translator_ad04ea752a422ca96a4b1ecbf70afc51b}\label{class_translator_ad04ea752a422ca96a4b1ecbf70afc51b}} 
+std\+::string {\bfseries done\+Text}
+\item 
+\mbox{\Hypertarget{class_translator_a690b4a4f92be38529859a7f62758d6f4}\label{class_translator_a690b4a4f92be38529859a7f62758d6f4}} 
+std\+::string {\bfseries request\+Body}
+\item 
+\mbox{\Hypertarget{class_translator_a2bffe46f37509b88ba23800112efa3ab}\label{class_translator_a2bffe46f37509b88ba23800112efa3ab}} 
+bool {\bfseries can\+Translate} = true
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_translator_a862ad6ca864a3df85d7d13721d57ffdf}\label{class_translator_a862ad6ca864a3df85d7d13721d57ffdf}} 
+\index{Translator@{Translator}!detect@{detect}}
+\index{detect@{detect}!Translator@{Translator}}
+\doxysubsubsection{\texorpdfstring{detect()}{detect()}}
+{\footnotesize\ttfamily bool Translator\+::detect (\begin{DoxyParamCaption}\item[{std\+::string}]{text }\end{DoxyParamCaption})}
+
+
+
+Determines whether a comment needs translation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & Text input of the comment to be analyzed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if it can be translated from another language, False if not (e.\+g., already in English or not a language in the API). 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_translator_ab31d089c93d17a611307aae57599aae9}\label{class_translator_ab31d089c93d17a611307aae57599aae9}} 
+\index{Translator@{Translator}!getOriginLang@{getOriginLang}}
+\index{getOriginLang@{getOriginLang}!Translator@{Translator}}
+\doxysubsubsection{\texorpdfstring{getOriginLang()}{getOriginLang()}}
+{\footnotesize\ttfamily std\+::string Translator\+::get\+Origin\+Lang (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the language of the original text. 
+
+\begin{DoxyReturn}{Returns}
+Detected text\textquotesingle{}s original language as a string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_translator_a33777ed227a55aff4764db3862baf1a4}\label{class_translator_a33777ed227a55aff4764db3862baf1a4}} 
+\index{Translator@{Translator}!getTranslated@{getTranslated}}
+\index{getTranslated@{getTranslated}!Translator@{Translator}}
+\doxysubsubsection{\texorpdfstring{getTranslated()}{getTranslated()}}
+{\footnotesize\ttfamily std\+::string Translator\+::get\+Translated (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the results of the translation. 
+
+\begin{DoxyReturn}{Returns}
+Translated text as a string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_translator_aff4ee83e20201e5c1c53785d9314aff4}\label{class_translator_aff4ee83e20201e5c1c53785d9314aff4}} 
+\index{Translator@{Translator}!translate@{translate}}
+\index{translate@{translate}!Translator@{Translator}}
+\doxysubsubsection{\texorpdfstring{translate()}{translate()}}
+{\footnotesize\ttfamily bool Translator\+::translate (\begin{DoxyParamCaption}\item[{std\+::string}]{text }\end{DoxyParamCaption})}
+
+
+
+Translate the given text if it is translatable. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & Text input of the comment to be translated. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the text was successfully translated, False otherwise. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{translator_8h}{translator.\+h}}\item 
+\mbox{\hyperlink{translator_8cpp}{translator.\+cpp}}\end{DoxyCompactItemize}

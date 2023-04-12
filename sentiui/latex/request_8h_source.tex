@@ -1,0 +1,60 @@
+\hypertarget{request_8h_source}{}\doxysection{request.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ Desc:\ header\ for\ the\ request\ class\ of\ the\ Senty\ program}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//Group:\ 26}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ GUARDS}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifndef\ REQUEST\_H}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ REQUEST\_H}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <nlohmann/json.hpp>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <curl/curl.h>}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <regex>}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{using\ }json\ =\ nlohmann::json;}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_request}{Request}}\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{private}:\ }
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ stores\ request\ information}}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_request_1_1_memory_struct}{MemoryStruct}}\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ *chunk;}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ size;}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ std::string\ url;}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ std::string\ response;}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ std::string\ errorMsg;}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ std::string\ y\_link;}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ std::string\ y\_id;}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ json\ jResponse;}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_request_ae24aa46620d4323a3dedf74b7f38d123}{writeMemoryCallback}}(\textcolor{keywordtype}{void}\ *contents,\ \textcolor{keywordtype}{size\_t}\ size,\ \textcolor{keywordtype}{size\_t}\ nmemb,\ \textcolor{keywordtype}{void}\ *userp);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{public}:\ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Constructor}}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_request}{Request}}(\textcolor{keyword}{const}\ std::string\&\ url);}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_request}{Request}}();}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Destructor}}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_request}{\string~Request}}();}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_request_afdd4c7bdc380667a26e8176c0817c38e}{execute}}();}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_request_a4cea54814cefea9b33d1a6e5dea160d2}{executeTln}}(std::string\ url,\ std::string\ requestBody);}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{class_request_a46245b6853bdd028593f0259d2952224}{result}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{class_request_a95e0fba6c5568b24c46e3d98b98cca50}{extractVideoID}}();}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{comment}{//setters}}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{class_request_a593dd3d39cfb9a4573c9f6cd3d780f3d}{getErrorMsg}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ json\ \mbox{\hyperlink{class_request_aeb5fd0e286de106139859c5817d2fbd8}{getJson}}();}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{class_request_a0f86fc971bfe939f2ae447b0a1119bb3}{getLink}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#endif\ }}
+
+\end{DoxyCode}

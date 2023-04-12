@@ -1,0 +1,41 @@
+\hypertarget{translator_8h_source}{}\doxysection{translator.\+h}
+\mbox{\hyperlink{translator_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ TRANSLATOR\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ TRANSLATOR\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}request.h"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_translator}{Translator}}\ \{}
+\DoxyCodeLine{00014\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{class_request}{Request}}\ request;}
+\DoxyCodeLine{00016\ \ \ \ \ std::string\ endpoint;}
+\DoxyCodeLine{00017\ \ \ \ \ std::string\ key;}
+\DoxyCodeLine{00018\ \ \ \ \ std::string\ body;}
+\DoxyCodeLine{00019\ \ \ \ \ std::string\ originLang;}
+\DoxyCodeLine{00020\ \ \ \ \ std::string\ targetLang\ =\ \textcolor{stringliteral}{"{}en"{}};}
+\DoxyCodeLine{00021\ \ \ \ \ std::string\ doneText;}
+\DoxyCodeLine{00022\ \ \ \ \ std::string\ requestBody;}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{bool}\ canTranslate\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{class_translator_aa4dfde53a0baa33e93637f00fd0d0a5a}{Translator}}();}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{class_translator_a9c262ba866126a6a35e979a64d7e3518}{\string~Translator}}();}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_translator_a862ad6ca864a3df85d7d13721d57ffdf}{detect}}(std::string\ text);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_translator_aff4ee83e20201e5c1c53785d9314aff4}{translate}}(std::string\ text);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00054\ \ \ \ \ std::string\ \mbox{\hyperlink{class_translator_a33777ed227a55aff4764db3862baf1a4}{getTranslated}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00060\ \ \ \ \ std::string\ \mbox{\hyperlink{class_translator_ab31d089c93d17a611307aae57599aae9}{getOriginLang}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00061\ \};}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TRANSLATOR\_H}}
+\DoxyCodeLine{00064\ }
+
+\end{DoxyCode}

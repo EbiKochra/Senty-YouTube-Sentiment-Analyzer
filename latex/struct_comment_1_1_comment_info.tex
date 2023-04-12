@@ -1,0 +1,63 @@
+\hypertarget{struct_comment_1_1_comment_info}{}\doxysection{Comment\+::Comment\+Info Struct Reference}
+\label{struct_comment_1_1_comment_info}\index{Comment::CommentInfo@{Comment::CommentInfo}}
+
+
+Structure for \mbox{\hyperlink{struct_comment_1_1_comment_info}{Comment\+Info}}.  
+
+
+
+
+{\ttfamily \#include $<$comment.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_comment_1_1_comment_info_a14b5bb2eba2f8c6ed461de983a8bc760}\label{struct_comment_1_1_comment_info_a14b5bb2eba2f8c6ed461de983a8bc760}} 
+std\+::vector$<$ \mbox{\hyperlink{struct_single_comment_1_1_single_comment_info}{Single\+Comment\+::\+Single\+Comment\+Info}} $>$ {\bfseries comments}
+\begin{DoxyCompactList}\small\item\em Vector of Single\+Comment\+Info objects. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct_comment_1_1_comment_info_aa3676a90c7d489230dc795c68983effb}\label{struct_comment_1_1_comment_info_aa3676a90c7d489230dc795c68983effb}} 
+std\+::vector$<$ std\+::string $>$ {\bfseries comment\+String}
+\begin{DoxyCompactList}\small\item\em Vector of comment strings. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct_comment_1_1_comment_info_a7c82cd344145fbf3d3bd29065b9c3560}\label{struct_comment_1_1_comment_info_a7c82cd344145fbf3d3bd29065b9c3560}} 
+\mbox{\hyperlink{struct_score}{Score}} {\bfseries overall\+Score}
+\begin{DoxyCompactList}\small\item\em Overall score for the comment section. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct_comment_1_1_comment_info_af5919f4b29616d9a1f3e94210da53fd8}\label{struct_comment_1_1_comment_info_af5919f4b29616d9a1f3e94210da53fd8}} 
+std\+::string {\bfseries intensity}
+\begin{DoxyCompactList}\small\item\em Intensity of sentiment. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct_comment_1_1_comment_info_a037b42a2d503ac187d6f8a35298856bf}\label{struct_comment_1_1_comment_info_a037b42a2d503ac187d6f8a35298856bf}} 
+std\+::string {\bfseries direction}
+\begin{DoxyCompactList}\small\item\em Direction of sentiment. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct_comment_1_1_comment_info_aa5fc296637c0fe9f1b424da5b2286630}\label{struct_comment_1_1_comment_info_aa5fc296637c0fe9f1b424da5b2286630}} 
+int {\bfseries num\+Comments} = 0
+\begin{DoxyCompactList}\small\item\em Number of comments. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct_comment_1_1_comment_info_a9ca270174b870379c3134b66ebd19ad7}\label{struct_comment_1_1_comment_info_a9ca270174b870379c3134b66ebd19ad7}} 
+std\+::pair$<$ std\+::string, std\+::string $>$ {\bfseries conclusion}
+\begin{DoxyCompactList}\small\item\em Conclusion pair (intensity, direction) \end{DoxyCompactList}\item 
+std\+::map$<$ std\+::string, int $>$ \mbox{\hyperlink{struct_comment_1_1_comment_info_a43ffe32d40cea3a45e4e93a7757cd3a4}{conclusion\+Counts}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Structure for \mbox{\hyperlink{struct_comment_1_1_comment_info}{Comment\+Info}}. 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_comment_1_1_comment_info_a43ffe32d40cea3a45e4e93a7757cd3a4}\label{struct_comment_1_1_comment_info_a43ffe32d40cea3a45e4e93a7757cd3a4}} 
+\index{Comment::CommentInfo@{Comment::CommentInfo}!conclusionCounts@{conclusionCounts}}
+\index{conclusionCounts@{conclusionCounts}!Comment::CommentInfo@{Comment::CommentInfo}}
+\doxysubsubsection{\texorpdfstring{conclusionCounts}{conclusionCounts}}
+{\footnotesize\ttfamily std\+::map$<$std\+::string, int$>$ Comment\+::\+Comment\+Info\+::conclusion\+Counts}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}numPos"{}},\ 0\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}numNeg"{}},\ 0\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}numNeu"{}},\ 0\}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{comment_8h}{comment.\+h}}\end{DoxyCompactItemize}

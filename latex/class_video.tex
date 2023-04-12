@@ -1,0 +1,264 @@
+\hypertarget{class_video}{}\doxysection{Video Class Reference}
+\label{class_video}\index{Video@{Video}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_video_1_1_video_info}{Video\+Info}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_video_a4c6d66849ac797552ce16107dcad4f31}\label{class_video_a4c6d66849ac797552ce16107dcad4f31}} 
+{\bfseries Video} (std\+::string video\+ID, std\+::string api\+Key)
+\item 
+std\+::string \mbox{\hyperlink{class_video_a447a85917c6dec998ed2c8d9c1f6499e}{fetch\+Video}} (std\+::string video\+ID, std\+::string api\+Key)
+\begin{DoxyCompactList}\small\item\em forms an API request given the video\textquotesingle{}s id and the api key \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_video_ac521c2b322a5d5979f2cbb95dd39d217}{fetch\+Recommended}} (std\+::string video\+ID, std\+::string api\+Key)
+\begin{DoxyCompactList}\small\item\em forms an API request and fetches videos related to the video with this ID \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_video_aebda0d36a186694f9f7c21c34afa3b4a}{set\+Video\+Data}} (const json \&json)
+\begin{DoxyCompactList}\small\item\em Builds the \mbox{\hyperlink{struct_video_1_1_video_info}{Video\+Info}} structure. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_video_a30d003913cffd489a92243dccf1dbf88}{print\+Video\+Comments}} () const
+\begin{DoxyCompactList}\small\item\em prints all the comments from the video\textquotesingle{}s comments section \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_video_a43dad2148a653b006b6f162c40e0207b}{print\+Video\+Info}} () const
+\begin{DoxyCompactList}\small\item\em prints the retrieved metadata from the video\textquotesingle{}s attributes \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_video_af75342570ad2a17b66279c269d0610e3}{print\+Analysis}} (const \mbox{\hyperlink{struct_video_1_1_video_info}{Video\+::\+Video\+Info}} v) const
+\begin{DoxyCompactList}\small\item\em prints the results of the analysis of the video\textquotesingle{}s comments \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_video_1_1_video_info}{Video\+::\+Video\+Info}} \mbox{\hyperlink{class_video_aef3d0d9d5afc51c1db4f795cb8ae6069}{get\+Video\+Obj}} ()
+\begin{DoxyCompactList}\small\item\em getter for the \mbox{\hyperlink{struct_video_1_1_video_info}{Video\+Info}} class \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_video_ae412744c399399e4c484a594508be7bf}{set\+Ratio\+Analysis}} (\mbox{\hyperlink{struct_video_1_1_video_info}{Video\+::\+Video\+Info}} \&v)
+\begin{DoxyCompactList}\small\item\em setter for the like\+View\+Ratio and comment\+View\+Ratio attributes of the \mbox{\hyperlink{struct_video_1_1_video_info}{Video\+Info}} class \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_video_a30a2f87972190d9413d48c35227292a4}{print\+Ratio\+Analysis}} (\mbox{\hyperlink{struct_video_1_1_video_info}{Video\+::\+Video\+Info}} v) const
+\begin{DoxyCompactList}\small\item\em prints the results of the ratio analysis of the video\textquotesingle{}s comments \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_video_a1ca67ca4ac2eddf32b7e7860d71a5085}{suggestion\+Analysis}} (\mbox{\hyperlink{struct_video_1_1_video_info}{Video\+::\+Video\+Info}} v) const
+\begin{DoxyCompactList}\small\item\em analyzes video\textquotesingle{}s attributes and outputs suggestions to user to improve response \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_video_a08ef5c9e258d752cd25a6e42c5012ee9}\label{class_video_a08ef5c9e258d752cd25a6e42c5012ee9}} 
+std\+::vector$<$ \mbox{\hyperlink{struct_video_1_1_video_info}{Video\+::\+Video\+Info}} $>$ {\bfseries videos}
+\item 
+\mbox{\Hypertarget{class_video_a6d1a0f00829d591fcebff9ef5bac4d83}\label{class_video_a6d1a0f00829d591fcebff9ef5bac4d83}} 
+\mbox{\hyperlink{struct_video_1_1_video_info}{Video\+::\+Video\+Info}} {\bfseries v}
+\item 
+\mbox{\Hypertarget{class_video_a43f2eaa4217580e15001f05b5ddff2d0}\label{class_video_a43f2eaa4217580e15001f05b5ddff2d0}} 
+\mbox{\hyperlink{class_comment}{Comment}} {\bfseries comment\+Section}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_video_ac521c2b322a5d5979f2cbb95dd39d217}\label{class_video_ac521c2b322a5d5979f2cbb95dd39d217}} 
+\index{Video@{Video}!fetchRecommended@{fetchRecommended}}
+\index{fetchRecommended@{fetchRecommended}!Video@{Video}}
+\doxysubsubsection{\texorpdfstring{fetchRecommended()}{fetchRecommended()}}
+{\footnotesize\ttfamily std\+::string Video\+::fetch\+Recommended (\begin{DoxyParamCaption}\item[{std\+::string}]{video\+ID,  }\item[{std\+::string}]{api\+Key }\end{DoxyParamCaption})}
+
+
+
+forms an API request and fetches videos related to the video with this ID 
+
+
+\begin{DoxyParams}{Parameters}
+{\em video\+ID,api\+Key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns a string containing the results of the search API call 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Authors}
+Adrian, Emily, Karanvir, Muhammad, Salar 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_video_a447a85917c6dec998ed2c8d9c1f6499e}\label{class_video_a447a85917c6dec998ed2c8d9c1f6499e}} 
+\index{Video@{Video}!fetchVideo@{fetchVideo}}
+\index{fetchVideo@{fetchVideo}!Video@{Video}}
+\doxysubsubsection{\texorpdfstring{fetchVideo()}{fetchVideo()}}
+{\footnotesize\ttfamily std\+::string Video\+::fetch\+Video (\begin{DoxyParamCaption}\item[{std\+::string}]{video\+ID,  }\item[{std\+::string}]{api\+Key }\end{DoxyParamCaption})}
+
+
+
+forms an API request given the video\textquotesingle{}s id and the api key 
+
+
+\begin{DoxyParams}{Parameters}
+{\em video\+ID,api\+Key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns a string containing the results of the API call 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Authors}
+Adrian, Emily, Karanvir, Muhammad, Salar 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_video_aef3d0d9d5afc51c1db4f795cb8ae6069}\label{class_video_aef3d0d9d5afc51c1db4f795cb8ae6069}} 
+\index{Video@{Video}!getVideoObj@{getVideoObj}}
+\index{getVideoObj@{getVideoObj}!Video@{Video}}
+\doxysubsubsection{\texorpdfstring{getVideoObj()}{getVideoObj()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_video_1_1_video_info}{Video\+::\+Video\+Info}} Video\+::get\+Video\+Obj (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+getter for the \mbox{\hyperlink{struct_video_1_1_video_info}{Video\+Info}} class 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+an object of type \mbox{\hyperlink{struct_video_1_1_video_info}{Video\+Info}}; containing attributes pertaining to the video 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Authors}
+Adrian, Emily, Karanvir, Muhammad, Salar 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_video_af75342570ad2a17b66279c269d0610e3}\label{class_video_af75342570ad2a17b66279c269d0610e3}} 
+\index{Video@{Video}!printAnalysis@{printAnalysis}}
+\index{printAnalysis@{printAnalysis}!Video@{Video}}
+\doxysubsubsection{\texorpdfstring{printAnalysis()}{printAnalysis()}}
+{\footnotesize\ttfamily void Video\+::print\+Analysis (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_video_1_1_video_info}{Video\+::\+Video\+Info}}}]{v }\end{DoxyParamCaption}) const}
+
+
+
+prints the results of the analysis of the video\textquotesingle{}s comments 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none, but implicitly prints the results of the analysis 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Authors}
+Adrian, Emily, Karanvir, Muhammad, Salar 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_video_a30a2f87972190d9413d48c35227292a4}\label{class_video_a30a2f87972190d9413d48c35227292a4}} 
+\index{Video@{Video}!printRatioAnalysis@{printRatioAnalysis}}
+\index{printRatioAnalysis@{printRatioAnalysis}!Video@{Video}}
+\doxysubsubsection{\texorpdfstring{printRatioAnalysis()}{printRatioAnalysis()}}
+{\footnotesize\ttfamily void Video\+::print\+Ratio\+Analysis (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_video_1_1_video_info}{Video\+::\+Video\+Info}}}]{v }\end{DoxyParamCaption}) const}
+
+
+
+prints the results of the ratio analysis of the video\textquotesingle{}s comments 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none, but implicitly prints the results of the ratio analysis 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Authors}
+Adrian, Emily, Karanvir, Muhammad, Salar 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_video_a30d003913cffd489a92243dccf1dbf88}\label{class_video_a30d003913cffd489a92243dccf1dbf88}} 
+\index{Video@{Video}!printVideoComments@{printVideoComments}}
+\index{printVideoComments@{printVideoComments}!Video@{Video}}
+\doxysubsubsection{\texorpdfstring{printVideoComments()}{printVideoComments()}}
+{\footnotesize\ttfamily void Video\+::print\+Video\+Comments (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+prints all the comments from the video\textquotesingle{}s comments section 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none, but implicitly prints all the retrieved comments 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Authors}
+Adrian, Emily, Karanvir, Muhammad, Salar 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_video_a43dad2148a653b006b6f162c40e0207b}\label{class_video_a43dad2148a653b006b6f162c40e0207b}} 
+\index{Video@{Video}!printVideoInfo@{printVideoInfo}}
+\index{printVideoInfo@{printVideoInfo}!Video@{Video}}
+\doxysubsubsection{\texorpdfstring{printVideoInfo()}{printVideoInfo()}}
+{\footnotesize\ttfamily void Video\+::print\+Video\+Info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+prints the retrieved metadata from the video\textquotesingle{}s attributes 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none, but implicitly prints the public attributes of the \mbox{\hyperlink{class_video}{Video}} object 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Authors}
+Adrian, Emily, Karanvir, Muhammad, Salar 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_video_ae412744c399399e4c484a594508be7bf}\label{class_video_ae412744c399399e4c484a594508be7bf}} 
+\index{Video@{Video}!setRatioAnalysis@{setRatioAnalysis}}
+\index{setRatioAnalysis@{setRatioAnalysis}!Video@{Video}}
+\doxysubsubsection{\texorpdfstring{setRatioAnalysis()}{setRatioAnalysis()}}
+{\footnotesize\ttfamily void Video\+::set\+Ratio\+Analysis (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_video_1_1_video_info}{Video\+::\+Video\+Info}} \&}]{v }\end{DoxyParamCaption})}
+
+
+
+setter for the like\+View\+Ratio and comment\+View\+Ratio attributes of the \mbox{\hyperlink{struct_video_1_1_video_info}{Video\+Info}} class 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Authors}
+Adrian, Emily, Karanvir, Muhammad, Salar 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_video_aebda0d36a186694f9f7c21c34afa3b4a}\label{class_video_aebda0d36a186694f9f7c21c34afa3b4a}} 
+\index{Video@{Video}!setVideoData@{setVideoData}}
+\index{setVideoData@{setVideoData}!Video@{Video}}
+\doxysubsubsection{\texorpdfstring{setVideoData()}{setVideoData()}}
+{\footnotesize\ttfamily void Video\+::set\+Video\+Data (\begin{DoxyParamCaption}\item[{const json \&}]{video\+Json }\end{DoxyParamCaption})}
+
+
+
+Builds the \mbox{\hyperlink{struct_video_1_1_video_info}{Video\+Info}} structure. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em video\+Json} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none, but implicitly builds a \mbox{\hyperlink{struct_video_1_1_video_info}{Video\+Info}} structure within an object of \mbox{\hyperlink{class_video}{Video}} class 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Authors}
+Adrian, Emily, Karanvir, Muhammad, Salar 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_video_a1ca67ca4ac2eddf32b7e7860d71a5085}\label{class_video_a1ca67ca4ac2eddf32b7e7860d71a5085}} 
+\index{Video@{Video}!suggestionAnalysis@{suggestionAnalysis}}
+\index{suggestionAnalysis@{suggestionAnalysis}!Video@{Video}}
+\doxysubsubsection{\texorpdfstring{suggestionAnalysis()}{suggestionAnalysis()}}
+{\footnotesize\ttfamily void Video\+::suggestion\+Analysis (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_video_1_1_video_info}{Video\+::\+Video\+Info}}}]{v }\end{DoxyParamCaption}) const}
+
+
+
+analyzes video\textquotesingle{}s attributes and outputs suggestions to user to improve response 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none, but implicitly prints some assortment of suggestions for the user 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Authors}
+Adrian, Emily, Karanvir, Muhammad, Salar 
+\end{DoxyAuthor}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+video.\+h\item 
+video.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['score_0',['Score',['../struct_score.html',1,'']]],
+  ['score_1',['score',['../class_analysis.html#a14f76a66952d3c9c4fcf481cb9083072',1,'Analysis']]],
+  ['score_5fvalence_2',['score_valence',['../classvader_1_1_sentiment_intensity_analyzer.html#a769294e4aa94fdb7c26fb79f0213633a',1,'vader::SentimentIntensityAnalyzer']]],
+  ['sentiment_3',['Sentiment',['../structvader_1_1_sentiment.html',1,'vader']]],
+  ['sentiment_5fvalence_4',['sentiment_valence',['../classvader_1_1_sentiment_intensity_analyzer.html#adf191c04fc11d7cfe15a85054223e696',1,'vader::SentimentIntensityAnalyzer']]],
+  ['sentimentintensityanalyzer_5',['SentimentIntensityAnalyzer',['../classvader_1_1_sentiment_intensity_analyzer.html#af6a817111b2ca13540aebe7360d6b052',1,'vader::SentimentIntensityAnalyzer::SentimentIntensityAnalyzer()'],['../classvader_1_1_sentiment_intensity_analyzer.html',1,'vader::SentimentIntensityAnalyzer']]],
+  ['sentimentintensityanalyzer_2ehpp_6',['SentimentIntensityAnalyzer.hpp',['../_sentiment_intensity_analyzer_8hpp.html',1,'']]],
+  ['sentitext_7',['SentiText',['../classvader_1_1_senti_text.html',1,'vader']]],
+  ['setanalysis_8',['setAnalysis',['../class_analysis.html#aafdf263cb46e40c829cb3990f8468f69',1,'Analysis']]],
+  ['setcommentsectscore_9',['setCommentSectScore',['../class_comment.html#a8bd7d3daaf247836bfb9b54547f5db3b',1,'Comment']]],
+  ['setconclusion_10',['setConclusion',['../class_comment.html#a1ea1abb0c13fe722b767b8cbd723779a',1,'Comment::setConclusion()'],['../class_single_comment.html#a8b2e222bbf35ad6721cfb766e7d83525',1,'SingleComment::setConclusion()']]],
+  ['setratioanalysis_11',['setRatioAnalysis',['../class_video.html#ae412744c399399e4c484a594508be7bf',1,'Video']]],
+  ['setsinglecomment_12',['setSingleComment',['../class_single_comment.html#aa44d088595adc7b8de02281f175ca452',1,'SingleComment']]],
+  ['setvideodata_13',['setVideoData',['../class_video.html#aebda0d36a186694f9f7c21c34afa3b4a',1,'Video']]],
+  ['singlecomment_14',['SingleComment',['../class_single_comment.html',1,'SingleComment'],['../class_single_comment.html#a7f4332d6599a0f93f2bb49cc76ec7b9a',1,'SingleComment::SingleComment()']]],
+  ['singlecommentinfo_15',['SingleCommentInfo',['../struct_single_comment_1_1_single_comment_info.html',1,'SingleComment']]],
+  ['suggestionanalysis_16',['suggestionAnalysis',['../class_video.html#a1ca67ca4ac2eddf32b7e7860d71a5085',1,'Video']]]
+];

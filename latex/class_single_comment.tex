@@ -1,0 +1,109 @@
+\hypertarget{class_single_comment}{}\doxysection{Single\+Comment Class Reference}
+\label{class_single_comment}\index{SingleComment@{SingleComment}}
+
+
+A class to manage and analyze a single comment.  
+
+
+
+
+{\ttfamily \#include $<$singlecomment.\+h$>$}
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_single_comment_1_1_single_comment_info}{Single\+Comment\+Info}}
+\begin{DoxyCompactList}\small\item\em Struct to store the information of a single comment. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_single_comment_a7f4332d6599a0f93f2bb49cc76ec7b9a}\label{class_single_comment_a7f4332d6599a0f93f2bb49cc76ec7b9a}} 
+{\bfseries Single\+Comment} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for \mbox{\hyperlink{class_single_comment}{Single\+Comment}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_single_comment_a1699086c12ff15f1248a3b155975131a}\label{class_single_comment_a1699086c12ff15f1248a3b155975131a}} 
+{\bfseries $\sim$\+Single\+Comment} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \mbox{\hyperlink{class_single_comment}{Single\+Comment}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_single_comment_1_1_single_comment_info}{Single\+Comment\+Info}} \mbox{\hyperlink{class_single_comment_aa44d088595adc7b8de02281f175ca452}{set\+Single\+Comment}} (const nlohmann\+::json \&single\+Comment)
+\begin{DoxyCompactList}\small\item\em Create a \mbox{\hyperlink{struct_single_comment_1_1_single_comment_info}{Single\+Comment\+Info}} object that holds all the information needed in the comment. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_single_comment_a8b2e222bbf35ad6721cfb766e7d83525}{set\+Conclusion}} (\mbox{\hyperlink{struct_single_comment_1_1_single_comment_info}{Single\+Comment\+Info}} c)
+\begin{DoxyCompactList}\small\item\em Determine the direction and polarity of the comment. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_single_comment_a1398af0497abacc4603226c7caba8b6c}\label{class_single_comment_a1398af0497abacc4603226c7caba8b6c}} 
+\mbox{\hyperlink{class_analysis}{Analysis}} {\bfseries analysis}
+\item 
+\mbox{\Hypertarget{class_single_comment_aefc8e349ce16bbf150a77abc76fa2203}\label{class_single_comment_aefc8e349ce16bbf150a77abc76fa2203}} 
+\mbox{\hyperlink{struct_score}{Score}} {\bfseries overall\+Score}
+\item 
+\mbox{\Hypertarget{class_single_comment_a35414745c05826fc169fb88617ff653a}\label{class_single_comment_a35414745c05826fc169fb88617ff653a}} 
+std\+::string {\bfseries y\+\_\+url}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class to manage and analyze a single comment. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_single_comment_a8b2e222bbf35ad6721cfb766e7d83525}\label{class_single_comment_a8b2e222bbf35ad6721cfb766e7d83525}} 
+\index{SingleComment@{SingleComment}!setConclusion@{setConclusion}}
+\index{setConclusion@{setConclusion}!SingleComment@{SingleComment}}
+\doxysubsubsection{\texorpdfstring{setConclusion()}{setConclusion()}}
+{\footnotesize\ttfamily void Single\+Comment\+::set\+Conclusion (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_single_comment_1_1_single_comment_info}{Single\+Comment\+::\+Single\+Comment\+Info}}}]{c }\end{DoxyParamCaption})}
+
+
+
+Determine the direction and polarity of the comment. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & Single comment object (\mbox{\hyperlink{struct_single_comment_1_1_single_comment_info}{Single\+Comment\+Info}}). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void, sets the conclusion direction and intensity of the single comment.
+\end{DoxyReturn}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & Single comment object (\mbox{\hyperlink{struct_single_comment_1_1_single_comment_info}{Single\+Comment\+Info}}). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void, sets the conclusion direction and intensity of the single comment. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_single_comment_aa44d088595adc7b8de02281f175ca452}\label{class_single_comment_aa44d088595adc7b8de02281f175ca452}} 
+\index{SingleComment@{SingleComment}!setSingleComment@{setSingleComment}}
+\index{setSingleComment@{setSingleComment}!SingleComment@{SingleComment}}
+\doxysubsubsection{\texorpdfstring{setSingleComment()}{setSingleComment()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_single_comment_1_1_single_comment_info}{Single\+Comment\+::\+Single\+Comment\+Info}} Single\+Comment\+::set\+Single\+Comment (\begin{DoxyParamCaption}\item[{const nlohmann\+::json \&}]{single\+Comment }\end{DoxyParamCaption})}
+
+
+
+Create a \mbox{\hyperlink{struct_single_comment_1_1_single_comment_info}{Single\+Comment\+Info}} object that holds all the information needed in the comment. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em single\+Comment} & Location of the JSON value containing the comment data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The object of a single comment (\mbox{\hyperlink{struct_single_comment_1_1_single_comment_info}{Single\+Comment\+Info}}).
+\end{DoxyReturn}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em single\+Comment} & Location of the JSON value containing the comment data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The object of a single comment (\mbox{\hyperlink{struct_single_comment_1_1_single_comment_info}{Single\+Comment\+Info}}). 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+singlecomment.\+h\item 
+singlecomment.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,37 @@
+\hypertarget{_senti_text_8hpp_source}{}\doxysection{Senti\+Text.\+hpp}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ Desc:\ header\ for\ the\ SentiText\ class\ of\ the\ Senty\ program}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//Group:\ 26}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ \#pragma\ execution\_character\_set("{}utf-\/8"{})}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}vaderSentiment.hpp"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevader}{vader}}}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classvader_1_1_senti_text}{SentiText}}\ \textcolor{comment}{//\ Identify\ sentiment-\/relevant\ string-\/level\ properties\ of\ input\ text.}}
+\DoxyCodeLine{00016\ \ \ \ \ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ String\ m\_text;}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ std::vector<String>\ m\_words\_and\_emoticons;}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ *\ m\_is\_emoticon;}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_is\_cap\_diff;}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvader_1_1_senti_text}{SentiText}}(String\ text);}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvader_1_1_senti_text}{\string~SentiText}}();}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ std::vector<String>\ *\ \mbox{\hyperlink{classvader_1_1_senti_text_a6504f8c42d2a2e7f987a0d5ead389af5}{get\_words\_and\_emoticons}}();}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ *\ \mbox{\hyperlink{classvader_1_1_senti_text_a97b95c38331c46724512b7bd49ec2e35}{get\_is\_emoticon}}();}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classvader_1_1_senti_text_a8515f433e8d985faa62cb2dffef854d4}{isCapDiff}}();}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ String\ \mbox{\hyperlink{classvader_1_1_senti_text_a44af4574ddfbea31c56060999da506b3}{\_strip\_punc\_if\_word}}(String\ \&token,\ \textcolor{keywordtype}{int}\ i);}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ std::vector<String>\ \mbox{\hyperlink{classvader_1_1_senti_text_a52fc65f45eb6514ad9dbe8d936617221}{\_words\_and\_emoticons}}();}
+\DoxyCodeLine{00034\ \ \ \ \ \};}
+\DoxyCodeLine{00035\ \}}
+
+\end{DoxyCode}

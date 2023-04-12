@@ -1,0 +1,150 @@
+\hypertarget{classvader_1_1_senti_text}{}\doxysection{vader\+::Senti\+Text Class Reference}
+\label{classvader_1_1_senti_text}\index{vader::SentiText@{vader::SentiText}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classvader_1_1_senti_text_a0c2dd9c6eaba356e1f716acc3d3a974a}\label{classvader_1_1_senti_text_a0c2dd9c6eaba356e1f716acc3d3a974a}} 
+{\bfseries Senti\+Text} (String text)
+\item 
+std\+::vector$<$ String $>$ $\ast$ \mbox{\hyperlink{classvader_1_1_senti_text_a6504f8c42d2a2e7f987a0d5ead389af5}{get\+\_\+words\+\_\+and\+\_\+emoticons}} ()
+\begin{DoxyCompactList}\small\item\em getter method for m\+\_\+words\+\_\+and\+\_\+emoticons attribute \end{DoxyCompactList}\item 
+const bool $\ast$ \mbox{\hyperlink{classvader_1_1_senti_text_a97b95c38331c46724512b7bd49ec2e35}{get\+\_\+is\+\_\+emoticon}} ()
+\begin{DoxyCompactList}\small\item\em getter method for get\+\_\+is\+\_\+emoticon attribute \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classvader_1_1_senti_text_a8515f433e8d985faa62cb2dffef854d4}{is\+Cap\+Diff}} ()
+\begin{DoxyCompactList}\small\item\em getter for m\+\_\+is\+\_\+cap\+\_\+diff attribute \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+String \mbox{\hyperlink{classvader_1_1_senti_text_a44af4574ddfbea31c56060999da506b3}{\+\_\+strip\+\_\+punc\+\_\+if\+\_\+word}} (String \&token, int i)
+\begin{DoxyCompactList}\small\item\em removes trailing and leading punctuation from comment \end{DoxyCompactList}\item 
+std\+::vector$<$ String $>$ \mbox{\hyperlink{classvader_1_1_senti_text_a52fc65f45eb6514ad9dbe8d936617221}{\+\_\+words\+\_\+and\+\_\+emoticons}} ()
+\begin{DoxyCompactList}\small\item\em removes punctuation and returns text containing only words and emoticons \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classvader_1_1_senti_text_aabd03daa711f02462879f2c6a2c69e6d}\label{classvader_1_1_senti_text_aabd03daa711f02462879f2c6a2c69e6d}} 
+String {\bfseries m\+\_\+text}
+\item 
+\mbox{\Hypertarget{classvader_1_1_senti_text_ab6eca8e3a3b2c2bae3cf00d91010bd8c}\label{classvader_1_1_senti_text_ab6eca8e3a3b2c2bae3cf00d91010bd8c}} 
+std\+::vector$<$ String $>$ {\bfseries m\+\_\+words\+\_\+and\+\_\+emoticons}
+\item 
+\mbox{\Hypertarget{classvader_1_1_senti_text_a6c87bc8d237cf6c793e32f483d82a32d}\label{classvader_1_1_senti_text_a6c87bc8d237cf6c793e32f483d82a32d}} 
+bool $\ast$ {\bfseries m\+\_\+is\+\_\+emoticon}
+\item 
+\mbox{\Hypertarget{classvader_1_1_senti_text_a666056ac300578a3da4417c61e49049f}\label{classvader_1_1_senti_text_a666056ac300578a3da4417c61e49049f}} 
+bool {\bfseries m\+\_\+is\+\_\+cap\+\_\+diff}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classvader_1_1_senti_text_a44af4574ddfbea31c56060999da506b3}\label{classvader_1_1_senti_text_a44af4574ddfbea31c56060999da506b3}} 
+\index{vader::SentiText@{vader::SentiText}!\_strip\_punc\_if\_word@{\_strip\_punc\_if\_word}}
+\index{\_strip\_punc\_if\_word@{\_strip\_punc\_if\_word}!vader::SentiText@{vader::SentiText}}
+\doxysubsubsection{\texorpdfstring{\_strip\_punc\_if\_word()}{\_strip\_punc\_if\_word()}}
+{\footnotesize\ttfamily String vader\+::\+Senti\+Text\+::\+\_\+strip\+\_\+punc\+\_\+if\+\_\+word (\begin{DoxyParamCaption}\item[{String \&}]{token,  }\item[{int}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+removes trailing and leading punctuation from comment 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \&token,i} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+token, a string containing the removed punctuation 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Authors}
+Adrian, Emily, Karanvir, Muhammad, Salar 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{classvader_1_1_senti_text_a52fc65f45eb6514ad9dbe8d936617221}\label{classvader_1_1_senti_text_a52fc65f45eb6514ad9dbe8d936617221}} 
+\index{vader::SentiText@{vader::SentiText}!\_words\_and\_emoticons@{\_words\_and\_emoticons}}
+\index{\_words\_and\_emoticons@{\_words\_and\_emoticons}!vader::SentiText@{vader::SentiText}}
+\doxysubsubsection{\texorpdfstring{\_words\_and\_emoticons()}{\_words\_and\_emoticons()}}
+{\footnotesize\ttfamily std\+::vector$<$ String $>$ vader\+::\+Senti\+Text\+::\+\_\+words\+\_\+and\+\_\+emoticons (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+removes punctuation and returns text containing only words and emoticons 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+wes, a string vector stripped of punctuation (except \textquotesingle{} used for contractions) 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Authors}
+Adrian, Emily, Karanvir, Muhammad, Salar 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{classvader_1_1_senti_text_a97b95c38331c46724512b7bd49ec2e35}\label{classvader_1_1_senti_text_a97b95c38331c46724512b7bd49ec2e35}} 
+\index{vader::SentiText@{vader::SentiText}!get\_is\_emoticon@{get\_is\_emoticon}}
+\index{get\_is\_emoticon@{get\_is\_emoticon}!vader::SentiText@{vader::SentiText}}
+\doxysubsubsection{\texorpdfstring{get\_is\_emoticon()}{get\_is\_emoticon()}}
+{\footnotesize\ttfamily const bool $\ast$ vader\+::\+Senti\+Text\+::get\+\_\+is\+\_\+emoticon (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+getter method for get\+\_\+is\+\_\+emoticon attribute 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+m\+\_\+is\+\_\+emoticon as true/false 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Authors}
+Adrian, Emily, Karanvir, Muhammad, Salar 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{classvader_1_1_senti_text_a6504f8c42d2a2e7f987a0d5ead389af5}\label{classvader_1_1_senti_text_a6504f8c42d2a2e7f987a0d5ead389af5}} 
+\index{vader::SentiText@{vader::SentiText}!get\_words\_and\_emoticons@{get\_words\_and\_emoticons}}
+\index{get\_words\_and\_emoticons@{get\_words\_and\_emoticons}!vader::SentiText@{vader::SentiText}}
+\doxysubsubsection{\texorpdfstring{get\_words\_and\_emoticons()}{get\_words\_and\_emoticons()}}
+{\footnotesize\ttfamily std\+::vector$<$ String $>$ $\ast$ vader\+::\+Senti\+Text\+::get\+\_\+words\+\_\+and\+\_\+emoticons (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+getter method for m\+\_\+words\+\_\+and\+\_\+emoticons attribute 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+m\+\_\+words\+\_\+and\+\_\+emoticons as a string 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Authors}
+Adrian, Emily, Karanvir, Muhammad, Salar 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{classvader_1_1_senti_text_a8515f433e8d985faa62cb2dffef854d4}\label{classvader_1_1_senti_text_a8515f433e8d985faa62cb2dffef854d4}} 
+\index{vader::SentiText@{vader::SentiText}!isCapDiff@{isCapDiff}}
+\index{isCapDiff@{isCapDiff}!vader::SentiText@{vader::SentiText}}
+\doxysubsubsection{\texorpdfstring{isCapDiff()}{isCapDiff()}}
+{\footnotesize\ttfamily bool vader\+::\+Senti\+Text\+::is\+Cap\+Diff (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+getter for m\+\_\+is\+\_\+cap\+\_\+diff attribute 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+m\+\_\+is\+\_\+cap\+\_\+diff, either true/false 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Authors}
+Adrian, Emily, Karanvir, Muhammad, Salar 
+\end{DoxyAuthor}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Senti\+Text.\+hpp\item 
+Senti\+Text.\+cpp\end{DoxyCompactItemize}

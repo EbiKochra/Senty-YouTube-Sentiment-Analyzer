@@ -1,0 +1,53 @@
+\hypertarget{_sentiment_intensity_analyzer_8hpp_source}{}\doxysection{Sentiment\+Intensity\+Analyzer.\+hpp}
+\mbox{\hyperlink{_sentiment_intensity_analyzer_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ \#pragma\ execution\_character\_set("{}utf-\/8"{})}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}SentiText.hpp"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevader}{vader}}}
+\DoxyCodeLine{00013\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classvader_1_1_sentiment_intensity_analyzer}{SentimentIntensityAnalyzer}}\ \textcolor{comment}{//\ Give\ a\ sentiment\ intensity\ score\ to\ sentences.}}
+\DoxyCodeLine{00019\ \ \ \ \ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{private}:\ }
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ String\ m\_lexicon\_full\_filepath;}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ String\ m\_emoji\_full\_filepath;}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ std::unordered\_map<String,\ double>\ m\_lexicon;}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ std::unordered\_map<String,\ String>\ m\_emojis;}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ std::vector<std::unordered\_set<Char>>\ m\_emoji\_bank;}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvader_1_1_sentiment_intensity_analyzer}{SentimentIntensityAnalyzer}}(std::string\ lexicon\_file=\textcolor{stringliteral}{"{}vader\_lexicon.txt"{}},\ std::string\ emoji\_lexicon=\textcolor{stringliteral}{"{}emoji\_utf8\_lexicon.txt"{}});}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classvader_1_1_sentiment_intensity_analyzer_a225ff2b72562f81131ac0d01a3d52923}{\string~SentimentIntensityAnalyzer}}();}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structvader_1_1_sentiment}{Sentiment}}\ \mbox{\hyperlink{classvader_1_1_sentiment_intensity_analyzer_a39897e781972df997b968b35f2047811}{polarity\_scores}}(String\ text);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvader_1_1_sentiment_intensity_analyzer_adf191c04fc11d7cfe15a85054223e696}{sentiment\_valence}}(\textcolor{keywordtype}{double}\ valence,\ \mbox{\hyperlink{classvader_1_1_senti_text}{SentiText}}\ sentitext,\ String\ item,\ \textcolor{keywordtype}{int}\ i,\ std::vector<double>\ \&sentiments);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classvader_1_1_sentiment_intensity_analyzer_a9604b148a4d1ddffdfccf1bc8f875c63}{char\_byte\_count}}(Char\ val);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvader_1_1_sentiment_intensity_analyzer_adc1ca3fda1dc7ceec7d8c7cff679fc7f}{make\_lex\_dict}}();}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvader_1_1_sentiment_intensity_analyzer_addbe38c77feefb8e1c6f0b035b0ea551}{make\_emoji\_dict}}();}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ The\ following\ methods\ are\ documented\ in\ their\ respective\ implementations.}}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classvader_1_1_sentiment_intensity_analyzer_a2906a8c22bd4319c434b408bfd6f4094}{\_least\_check}}(\textcolor{keywordtype}{double}\ valence,\ \textcolor{keyword}{const}\ std::vector<String>\ \&words\_and\_emoticons,\ \textcolor{keywordtype}{int}\ i);}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classvader_1_1_sentiment_intensity_analyzer_abeba78068a3d114f3618bc8b827b7c09}{\_but\_check}}(\textcolor{keyword}{const}\ std::vector<String>\ \&words\_and\_emoticons,\ std::vector<double>\ \&sentiments);}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classvader_1_1_sentiment_intensity_analyzer_ab4f7c072f729d73bddcc54f1f0a1e030}{\_special\_idioms\_check}}(\textcolor{keywordtype}{double}\ valence,\ \textcolor{keyword}{const}\ std::vector<String>\ \&words\_and\_emoticons,\ \textcolor{keywordtype}{int}\ i);}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classvader_1_1_sentiment_intensity_analyzer_a1565f6e2878a360845528509a1e94e8d}{\_sentiment\_laden\_idioms\_check}}(\textcolor{keywordtype}{double}\ valence,\ \mbox{\hyperlink{classvader_1_1_senti_text}{SentiText}}\ senti\_text\_lower);\ \textcolor{comment}{//\ future\ work}}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classvader_1_1_sentiment_intensity_analyzer_a080697d92ca7f9cd06997cc0949b009f}{\_negation\_check}}(\textcolor{keywordtype}{double}\ valence,\ \textcolor{keyword}{const}\ std::vector<String>\ \&words\_and\_emoticons,\ \textcolor{keywordtype}{int}\ start\_i,\ \textcolor{keywordtype}{int}\ i);}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classvader_1_1_sentiment_intensity_analyzer_ab329918a8e7737813a01c0569894bc02}{\_punctuation\_emphasis}}(String\ text);}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classvader_1_1_sentiment_intensity_analyzer_a19eb8a372c301e253533f89d38d8e5cd}{\_amplify\_ep}}(String\ text);}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classvader_1_1_sentiment_intensity_analyzer_ab23c233dc9ac28bad18da4855af98ed8}{\_amplify\_qm}}(String\ text);}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ *\ \mbox{\hyperlink{classvader_1_1_sentiment_intensity_analyzer_a73fb71502641ff099b93555e7f0676e3}{\_sift\_sentiment\_scores}}(std::vector<double>\ \&sentiments);}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structvader_1_1_sentiment}{Sentiment}}\ \mbox{\hyperlink{classvader_1_1_sentiment_intensity_analyzer_a769294e4aa94fdb7c26fb79f0213633a}{score\_valence}}(std::vector<double>\ \&sentiments,\ String\ text);}
+\DoxyCodeLine{00082\ \ \ \ \ \};}
+\DoxyCodeLine{00083\ \}}
+\DoxyCodeLine{00084\ }
+
+\end{DoxyCode}

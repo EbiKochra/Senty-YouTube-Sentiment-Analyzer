@@ -1,0 +1,425 @@
+\hypertarget{classvader_1_1_sentiment_intensity_analyzer}{}\doxysection{vader\+::Sentiment\+Intensity\+Analyzer Class Reference}
+\label{classvader_1_1_sentiment_intensity_analyzer}\index{vader::SentimentIntensityAnalyzer@{vader::SentimentIntensityAnalyzer}}
+
+
+Provide sentiment intensity scores for sentences.  
+
+
+
+
+{\ttfamily \#include $<$Sentiment\+Intensity\+Analyzer.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classvader_1_1_sentiment_intensity_analyzer_af6a817111b2ca13540aebe7360d6b052}{Sentiment\+Intensity\+Analyzer}} (std\+::string lexicon\+\_\+file=\char`\"{}vader\+\_\+lexicon.\+txt\char`\"{}, std\+::string emoji\+\_\+lexicon=\char`\"{}emoji\+\_\+utf8\+\_\+lexicon.\+txt\char`\"{})
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{structvader_1_1_sentiment}{Sentiment}} Intensity Analyzer object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classvader_1_1_sentiment_intensity_analyzer_a225ff2b72562f81131ac0d01a3d52923}\label{classvader_1_1_sentiment_intensity_analyzer_a225ff2b72562f81131ac0d01a3d52923}} 
+{\bfseries $\sim$\+Sentiment\+Intensity\+Analyzer} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \mbox{\hyperlink{classvader_1_1_sentiment_intensity_analyzer}{Sentiment\+Intensity\+Analyzer}} class. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structvader_1_1_sentiment}{Sentiment}} \mbox{\hyperlink{classvader_1_1_sentiment_intensity_analyzer_a39897e781972df997b968b35f2047811}{polarity\+\_\+scores}} (String text)
+\begin{DoxyCompactList}\small\item\em Calculate sentiment polarity scores for a given text. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classvader_1_1_sentiment_intensity_analyzer_adf191c04fc11d7cfe15a85054223e696}{sentiment\+\_\+valence}} (double valence, \mbox{\hyperlink{classvader_1_1_senti_text}{Senti\+Text}} sentitext, String item, int i, std\+::vector$<$ double $>$ \&sentiments)
+\begin{DoxyCompactList}\small\item\em Calculate sentiment valence for a given item in the text. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classvader_1_1_sentiment_intensity_analyzer_adc1ca3fda1dc7ceec7d8c7cff679fc7f}{make\+\_\+lex\+\_\+dict}} ()
+\begin{DoxyCompactList}\small\item\em Initialize the lexicon dictionary. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classvader_1_1_sentiment_intensity_analyzer_addbe38c77feefb8e1c6f0b035b0ea551}{make\+\_\+emoji\+\_\+dict}} ()
+\begin{DoxyCompactList}\small\item\em Initialize the emoji dictionary. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classvader_1_1_sentiment_intensity_analyzer_a2906a8c22bd4319c434b408bfd6f4094}{\+\_\+least\+\_\+check}} (double valence, const std\+::vector$<$ String $>$ \&words\+\_\+and\+\_\+emoticons, int i)
+\begin{DoxyCompactList}\small\item\em Checks for negation case using \char`\"{}least\char`\"{} and updates valence accordingly. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classvader_1_1_sentiment_intensity_analyzer_ab329918a8e7737813a01c0569894bc02}{\+\_\+punctuation\+\_\+emphasis}} (String text)
+\begin{DoxyCompactList}\small\item\em Computes the punctuation emphasis for the given text. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structvader_1_1_sentiment}{Sentiment}} \mbox{\hyperlink{classvader_1_1_sentiment_intensity_analyzer_a769294e4aa94fdb7c26fb79f0213633a}{score\+\_\+valence}} (std\+::vector$<$ double $>$ \&sentiments, String text)
+\begin{DoxyCompactList}\small\item\em Calculate sentiment valence scores from given sentiments and text. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int \mbox{\hyperlink{classvader_1_1_sentiment_intensity_analyzer_a9604b148a4d1ddffdfccf1bc8f875c63}{char\+\_\+byte\+\_\+count}} (Char val)
+\begin{DoxyCompactList}\small\item\em Computes the number of bytes used to store a char from the specified value ranges. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classvader_1_1_sentiment_intensity_analyzer_abeba78068a3d114f3618bc8b827b7c09}{\+\_\+but\+\_\+check}} (const std\+::vector$<$ String $>$ \&words\+\_\+and\+\_\+emoticons, std\+::vector$<$ double $>$ \&sentiments)
+\begin{DoxyCompactList}\small\item\em Modifies sentiment values in the presence of the contrastive conjunction \textquotesingle{}but\textquotesingle{}. \end{DoxyCompactList}\item 
+static double \mbox{\hyperlink{classvader_1_1_sentiment_intensity_analyzer_ab4f7c072f729d73bddcc54f1f0a1e030}{\+\_\+special\+\_\+idioms\+\_\+check}} (double valence, const std\+::vector$<$ String $>$ \&words\+\_\+and\+\_\+emoticons, int i)
+\begin{DoxyCompactList}\small\item\em Checks for special idioms and updates valence accordingly. \end{DoxyCompactList}\item 
+static double \mbox{\hyperlink{classvader_1_1_sentiment_intensity_analyzer_a1565f6e2878a360845528509a1e94e8d}{\+\_\+sentiment\+\_\+laden\+\_\+idioms\+\_\+check}} (double valence, \mbox{\hyperlink{classvader_1_1_senti_text}{Senti\+Text}} senti\+\_\+text\+\_\+lower)
+\begin{DoxyCompactList}\small\item\em Placeholder for sentiment laden idioms check. \end{DoxyCompactList}\item 
+static double \mbox{\hyperlink{classvader_1_1_sentiment_intensity_analyzer_a080697d92ca7f9cd06997cc0949b009f}{\+\_\+negation\+\_\+check}} (double valence, const std\+::vector$<$ String $>$ \&words\+\_\+and\+\_\+emoticons, int start\+\_\+i, int i)
+\begin{DoxyCompactList}\small\item\em Checks for negation in the given context and updates valence accordingly. \end{DoxyCompactList}\item 
+static double \mbox{\hyperlink{classvader_1_1_sentiment_intensity_analyzer_a19eb8a372c301e253533f89d38d8e5cd}{\+\_\+amplify\+\_\+ep}} (String text)
+\begin{DoxyCompactList}\small\item\em Amplify sentiment score based on exclamation points in the text. \end{DoxyCompactList}\item 
+static double \mbox{\hyperlink{classvader_1_1_sentiment_intensity_analyzer_ab23c233dc9ac28bad18da4855af98ed8}{\+\_\+amplify\+\_\+qm}} (String text)
+\begin{DoxyCompactList}\small\item\em Amplify sentiment score based on question marks in the text. \end{DoxyCompactList}\item 
+static double $\ast$ \mbox{\hyperlink{classvader_1_1_sentiment_intensity_analyzer_a73fb71502641ff099b93555e7f0676e3}{\+\_\+sift\+\_\+sentiment\+\_\+scores}} (std\+::vector$<$ double $>$ \&sentiments)
+\begin{DoxyCompactList}\small\item\em Separate positive, negative and neutral sentiment scores from sentiments. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classvader_1_1_sentiment_intensity_analyzer_a41cc42c84263764c954475ae0bfe4dfb}\label{classvader_1_1_sentiment_intensity_analyzer_a41cc42c84263764c954475ae0bfe4dfb}} 
+String {\bfseries m\+\_\+lexicon\+\_\+full\+\_\+filepath}
+\item 
+\mbox{\Hypertarget{classvader_1_1_sentiment_intensity_analyzer_a1f0cec741f118e9375644a8e4855c85c}\label{classvader_1_1_sentiment_intensity_analyzer_a1f0cec741f118e9375644a8e4855c85c}} 
+String {\bfseries m\+\_\+emoji\+\_\+full\+\_\+filepath}
+\item 
+\mbox{\Hypertarget{classvader_1_1_sentiment_intensity_analyzer_a6c6fe847b597abbfd2e73404f360896d}\label{classvader_1_1_sentiment_intensity_analyzer_a6c6fe847b597abbfd2e73404f360896d}} 
+std\+::unordered\+\_\+map$<$ String, double $>$ {\bfseries m\+\_\+lexicon}
+\item 
+\mbox{\Hypertarget{classvader_1_1_sentiment_intensity_analyzer_a12e40eb68e6c786afa31ab6a59254b30}\label{classvader_1_1_sentiment_intensity_analyzer_a12e40eb68e6c786afa31ab6a59254b30}} 
+std\+::unordered\+\_\+map$<$ String, String $>$ {\bfseries m\+\_\+emojis}
+\item 
+\mbox{\Hypertarget{classvader_1_1_sentiment_intensity_analyzer_a409637311e2ccbd95d85654896c8f1e2}\label{classvader_1_1_sentiment_intensity_analyzer_a409637311e2ccbd95d85654896c8f1e2}} 
+std\+::vector$<$ std\+::unordered\+\_\+set$<$ Char $>$ $>$ {\bfseries m\+\_\+emoji\+\_\+bank}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provide sentiment intensity scores for sentences. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classvader_1_1_sentiment_intensity_analyzer_af6a817111b2ca13540aebe7360d6b052}\label{classvader_1_1_sentiment_intensity_analyzer_af6a817111b2ca13540aebe7360d6b052}} 
+\index{vader::SentimentIntensityAnalyzer@{vader::SentimentIntensityAnalyzer}!SentimentIntensityAnalyzer@{SentimentIntensityAnalyzer}}
+\index{SentimentIntensityAnalyzer@{SentimentIntensityAnalyzer}!vader::SentimentIntensityAnalyzer@{vader::SentimentIntensityAnalyzer}}
+\doxysubsubsection{\texorpdfstring{SentimentIntensityAnalyzer()}{SentimentIntensityAnalyzer()}}
+{\footnotesize\ttfamily vader\+::\+Sentiment\+Intensity\+Analyzer\+::\+Sentiment\+Intensity\+Analyzer (\begin{DoxyParamCaption}\item[{std\+::string}]{lexicon\+\_\+file = {\ttfamily \char`\"{}vader\+\_\+lexicon.txt\char`\"{}},  }\item[{std\+::string}]{emoji\+\_\+lexicon = {\ttfamily \char`\"{}emoji\+\_\+utf8\+\_\+lexicon.txt\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{structvader_1_1_sentiment}{Sentiment}} Intensity Analyzer object. 
+
+Constructor for \mbox{\hyperlink{classvader_1_1_sentiment_intensity_analyzer}{Sentiment\+Intensity\+Analyzer}} class.
+
+
+\begin{DoxyParams}{Parameters}
+{\em lexicon\+\_\+file} & Path to the lexicon file (default\+: \char`\"{}vader\+\_\+lexicon.\+txt\char`\"{}). \\
+\hline
+{\em emoji\+\_\+lexicon} & Path to the emoji lexicon file (default\+: \char`\"{}emoji\+\_\+utf8\+\_\+lexicon.\+txt\char`\"{}).\\
+\hline
+{\em lexicon\+\_\+file} & Path to lexicon file for VADER sentiment analysis \\
+\hline
+{\em emoji\+\_\+lexicon} & Path to emoji lexicon file for VADER sentiment analysis \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classvader_1_1_sentiment_intensity_analyzer_a19eb8a372c301e253533f89d38d8e5cd}\label{classvader_1_1_sentiment_intensity_analyzer_a19eb8a372c301e253533f89d38d8e5cd}} 
+\index{vader::SentimentIntensityAnalyzer@{vader::SentimentIntensityAnalyzer}!\_amplify\_ep@{\_amplify\_ep}}
+\index{\_amplify\_ep@{\_amplify\_ep}!vader::SentimentIntensityAnalyzer@{vader::SentimentIntensityAnalyzer}}
+\doxysubsubsection{\texorpdfstring{\_amplify\_ep()}{\_amplify\_ep()}}
+{\footnotesize\ttfamily double vader\+::\+Sentiment\+Intensity\+Analyzer\+::\+\_\+amplify\+\_\+ep (\begin{DoxyParamCaption}\item[{String}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Amplify sentiment score based on exclamation points in the text. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & Input text to be analyzed for exclamation points. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Amplified sentiment score for exclamation points. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classvader_1_1_sentiment_intensity_analyzer_ab23c233dc9ac28bad18da4855af98ed8}\label{classvader_1_1_sentiment_intensity_analyzer_ab23c233dc9ac28bad18da4855af98ed8}} 
+\index{vader::SentimentIntensityAnalyzer@{vader::SentimentIntensityAnalyzer}!\_amplify\_qm@{\_amplify\_qm}}
+\index{\_amplify\_qm@{\_amplify\_qm}!vader::SentimentIntensityAnalyzer@{vader::SentimentIntensityAnalyzer}}
+\doxysubsubsection{\texorpdfstring{\_amplify\_qm()}{\_amplify\_qm()}}
+{\footnotesize\ttfamily double vader\+::\+Sentiment\+Intensity\+Analyzer\+::\+\_\+amplify\+\_\+qm (\begin{DoxyParamCaption}\item[{String}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Amplify sentiment score based on question marks in the text. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & Input text to be analyzed for question marks. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Amplified sentiment score for question marks. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classvader_1_1_sentiment_intensity_analyzer_abeba78068a3d114f3618bc8b827b7c09}\label{classvader_1_1_sentiment_intensity_analyzer_abeba78068a3d114f3618bc8b827b7c09}} 
+\index{vader::SentimentIntensityAnalyzer@{vader::SentimentIntensityAnalyzer}!\_but\_check@{\_but\_check}}
+\index{\_but\_check@{\_but\_check}!vader::SentimentIntensityAnalyzer@{vader::SentimentIntensityAnalyzer}}
+\doxysubsubsection{\texorpdfstring{\_but\_check()}{\_but\_check()}}
+{\footnotesize\ttfamily void vader\+::\+Sentiment\+Intensity\+Analyzer\+::\+\_\+but\+\_\+check (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ String $>$ \&}]{words\+\_\+and\+\_\+emoticons,  }\item[{std\+::vector$<$ double $>$ \&}]{sentiments }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Modifies sentiment values in the presence of the contrastive conjunction \textquotesingle{}but\textquotesingle{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em words\+\_\+and\+\_\+emoticons} & The vector of words and emoticons. \\
+\hline
+{\em sentiments} & The vector of sentiment values. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classvader_1_1_sentiment_intensity_analyzer_a2906a8c22bd4319c434b408bfd6f4094}\label{classvader_1_1_sentiment_intensity_analyzer_a2906a8c22bd4319c434b408bfd6f4094}} 
+\index{vader::SentimentIntensityAnalyzer@{vader::SentimentIntensityAnalyzer}!\_least\_check@{\_least\_check}}
+\index{\_least\_check@{\_least\_check}!vader::SentimentIntensityAnalyzer@{vader::SentimentIntensityAnalyzer}}
+\doxysubsubsection{\texorpdfstring{\_least\_check()}{\_least\_check()}}
+{\footnotesize\ttfamily double vader\+::\+Sentiment\+Intensity\+Analyzer\+::\+\_\+least\+\_\+check (\begin{DoxyParamCaption}\item[{double}]{valence,  }\item[{const std\+::vector$<$ String $>$ \&}]{words\+\_\+and\+\_\+emoticons,  }\item[{int}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Checks for negation case using \char`\"{}least\char`\"{} and updates valence accordingly. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em valence} & The current valence value. \\
+\hline
+{\em words\+\_\+and\+\_\+emoticons} & The vector of words and emoticons. \\
+\hline
+{\em i} & The index of the current word/emoticon. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Updated valence value after considering the \char`\"{}least\char`\"{} negation case. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classvader_1_1_sentiment_intensity_analyzer_a080697d92ca7f9cd06997cc0949b009f}\label{classvader_1_1_sentiment_intensity_analyzer_a080697d92ca7f9cd06997cc0949b009f}} 
+\index{vader::SentimentIntensityAnalyzer@{vader::SentimentIntensityAnalyzer}!\_negation\_check@{\_negation\_check}}
+\index{\_negation\_check@{\_negation\_check}!vader::SentimentIntensityAnalyzer@{vader::SentimentIntensityAnalyzer}}
+\doxysubsubsection{\texorpdfstring{\_negation\_check()}{\_negation\_check()}}
+{\footnotesize\ttfamily double vader\+::\+Sentiment\+Intensity\+Analyzer\+::\+\_\+negation\+\_\+check (\begin{DoxyParamCaption}\item[{double}]{valence,  }\item[{const std\+::vector$<$ String $>$ \&}]{words\+\_\+and\+\_\+emoticons,  }\item[{int}]{start\+\_\+i,  }\item[{int}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Checks for negation in the given context and updates valence accordingly. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em valence} & The current valence value. \\
+\hline
+{\em words\+\_\+and\+\_\+emoticons} & The vector of words and emoticons. \\
+\hline
+{\em start\+\_\+i} & The starting index for checking negation. \\
+\hline
+{\em i} & The index of the current word/emoticon. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Updated valence value after considering negation. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classvader_1_1_sentiment_intensity_analyzer_ab329918a8e7737813a01c0569894bc02}\label{classvader_1_1_sentiment_intensity_analyzer_ab329918a8e7737813a01c0569894bc02}} 
+\index{vader::SentimentIntensityAnalyzer@{vader::SentimentIntensityAnalyzer}!\_punctuation\_emphasis@{\_punctuation\_emphasis}}
+\index{\_punctuation\_emphasis@{\_punctuation\_emphasis}!vader::SentimentIntensityAnalyzer@{vader::SentimentIntensityAnalyzer}}
+\doxysubsubsection{\texorpdfstring{\_punctuation\_emphasis()}{\_punctuation\_emphasis()}}
+{\footnotesize\ttfamily double vader\+::\+Sentiment\+Intensity\+Analyzer\+::\+\_\+punctuation\+\_\+emphasis (\begin{DoxyParamCaption}\item[{String}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Computes the punctuation emphasis for the given text. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & The input text. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The punctuation emphasis value for the text. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classvader_1_1_sentiment_intensity_analyzer_a1565f6e2878a360845528509a1e94e8d}\label{classvader_1_1_sentiment_intensity_analyzer_a1565f6e2878a360845528509a1e94e8d}} 
+\index{vader::SentimentIntensityAnalyzer@{vader::SentimentIntensityAnalyzer}!\_sentiment\_laden\_idioms\_check@{\_sentiment\_laden\_idioms\_check}}
+\index{\_sentiment\_laden\_idioms\_check@{\_sentiment\_laden\_idioms\_check}!vader::SentimentIntensityAnalyzer@{vader::SentimentIntensityAnalyzer}}
+\doxysubsubsection{\texorpdfstring{\_sentiment\_laden\_idioms\_check()}{\_sentiment\_laden\_idioms\_check()}}
+{\footnotesize\ttfamily double vader\+::\+Sentiment\+Intensity\+Analyzer\+::\+\_\+sentiment\+\_\+laden\+\_\+idioms\+\_\+check (\begin{DoxyParamCaption}\item[{double}]{valence,  }\item[{\mbox{\hyperlink{classvader_1_1_senti_text}{Senti\+Text}}}]{senti\+\_\+text\+\_\+lower }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Placeholder for sentiment laden idioms check. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em valence} & The current valence value. \\
+\hline
+{\em senti\+\_\+text\+\_\+lower} & The \mbox{\hyperlink{classvader_1_1_senti_text}{Senti\+Text}} object with lowercase text. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The unchanged valence value, as this function is not implemented. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classvader_1_1_sentiment_intensity_analyzer_a73fb71502641ff099b93555e7f0676e3}\label{classvader_1_1_sentiment_intensity_analyzer_a73fb71502641ff099b93555e7f0676e3}} 
+\index{vader::SentimentIntensityAnalyzer@{vader::SentimentIntensityAnalyzer}!\_sift\_sentiment\_scores@{\_sift\_sentiment\_scores}}
+\index{\_sift\_sentiment\_scores@{\_sift\_sentiment\_scores}!vader::SentimentIntensityAnalyzer@{vader::SentimentIntensityAnalyzer}}
+\doxysubsubsection{\texorpdfstring{\_sift\_sentiment\_scores()}{\_sift\_sentiment\_scores()}}
+{\footnotesize\ttfamily double $\ast$ vader\+::\+Sentiment\+Intensity\+Analyzer\+::\+\_\+sift\+\_\+sentiment\+\_\+scores (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$ \&}]{sentiments }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Separate positive, negative and neutral sentiment scores from sentiments. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sentiments} & Vector of sentiment scores to be sifted. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to an array with pos\+\_\+sum, neg\+\_\+sum, and neu\+\_\+count. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classvader_1_1_sentiment_intensity_analyzer_ab4f7c072f729d73bddcc54f1f0a1e030}\label{classvader_1_1_sentiment_intensity_analyzer_ab4f7c072f729d73bddcc54f1f0a1e030}} 
+\index{vader::SentimentIntensityAnalyzer@{vader::SentimentIntensityAnalyzer}!\_special\_idioms\_check@{\_special\_idioms\_check}}
+\index{\_special\_idioms\_check@{\_special\_idioms\_check}!vader::SentimentIntensityAnalyzer@{vader::SentimentIntensityAnalyzer}}
+\doxysubsubsection{\texorpdfstring{\_special\_idioms\_check()}{\_special\_idioms\_check()}}
+{\footnotesize\ttfamily double vader\+::\+Sentiment\+Intensity\+Analyzer\+::\+\_\+special\+\_\+idioms\+\_\+check (\begin{DoxyParamCaption}\item[{double}]{valence,  }\item[{const std\+::vector$<$ String $>$ \&}]{words\+\_\+and\+\_\+emoticons,  }\item[{int}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Checks for special idioms and updates valence accordingly. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em valence} & The current valence value. \\
+\hline
+{\em words\+\_\+and\+\_\+emoticons} & The vector of words and emoticons. \\
+\hline
+{\em i} & The index of the current word/emoticon. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Updated valence value after considering the special idioms. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classvader_1_1_sentiment_intensity_analyzer_a9604b148a4d1ddffdfccf1bc8f875c63}\label{classvader_1_1_sentiment_intensity_analyzer_a9604b148a4d1ddffdfccf1bc8f875c63}} 
+\index{vader::SentimentIntensityAnalyzer@{vader::SentimentIntensityAnalyzer}!char\_byte\_count@{char\_byte\_count}}
+\index{char\_byte\_count@{char\_byte\_count}!vader::SentimentIntensityAnalyzer@{vader::SentimentIntensityAnalyzer}}
+\doxysubsubsection{\texorpdfstring{char\_byte\_count()}{char\_byte\_count()}}
+{\footnotesize\ttfamily int vader\+::\+Sentiment\+Intensity\+Analyzer\+::char\+\_\+byte\+\_\+count (\begin{DoxyParamCaption}\item[{Char}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Computes the number of bytes used to store a char from the specified value ranges. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & A character to determine the number of bytes to store \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns an integer representing the corresponding number of bytes it takes to store that Char 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classvader_1_1_sentiment_intensity_analyzer_addbe38c77feefb8e1c6f0b035b0ea551}\label{classvader_1_1_sentiment_intensity_analyzer_addbe38c77feefb8e1c6f0b035b0ea551}} 
+\index{vader::SentimentIntensityAnalyzer@{vader::SentimentIntensityAnalyzer}!make\_emoji\_dict@{make\_emoji\_dict}}
+\index{make\_emoji\_dict@{make\_emoji\_dict}!vader::SentimentIntensityAnalyzer@{vader::SentimentIntensityAnalyzer}}
+\doxysubsubsection{\texorpdfstring{make\_emoji\_dict()}{make\_emoji\_dict()}}
+{\footnotesize\ttfamily void vader\+::\+Sentiment\+Intensity\+Analyzer\+::make\+\_\+emoji\+\_\+dict (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Initialize the emoji dictionary. 
+
+Reads in the file \textquotesingle{}emoji\+\_\+utf8\+\_\+lexicon.\+txt\textquotesingle{} and builds a dictionary (vector$<$\+String$>$ object)
+
+\begin{DoxyNote}{Note}
+N/A, reads in a .txt file 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+N/A, but builds a vector of type String to be used as an emoji dictionary 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classvader_1_1_sentiment_intensity_analyzer_adc1ca3fda1dc7ceec7d8c7cff679fc7f}\label{classvader_1_1_sentiment_intensity_analyzer_adc1ca3fda1dc7ceec7d8c7cff679fc7f}} 
+\index{vader::SentimentIntensityAnalyzer@{vader::SentimentIntensityAnalyzer}!make\_lex\_dict@{make\_lex\_dict}}
+\index{make\_lex\_dict@{make\_lex\_dict}!vader::SentimentIntensityAnalyzer@{vader::SentimentIntensityAnalyzer}}
+\doxysubsubsection{\texorpdfstring{make\_lex\_dict()}{make\_lex\_dict()}}
+{\footnotesize\ttfamily void vader\+::\+Sentiment\+Intensity\+Analyzer\+::make\+\_\+lex\+\_\+dict (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Initialize the lexicon dictionary. 
+
+Reads in the file \textquotesingle{}vader\+\_\+lexicon.\+txt\textquotesingle{} and builds a dictionary (vector$<$\+String$>$ object)
+
+\begin{DoxyNote}{Note}
+N/A, reads in a .txt file 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+N/A, but builds a vector of type String to be used as a lexical dictionary 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classvader_1_1_sentiment_intensity_analyzer_a39897e781972df997b968b35f2047811}\label{classvader_1_1_sentiment_intensity_analyzer_a39897e781972df997b968b35f2047811}} 
+\index{vader::SentimentIntensityAnalyzer@{vader::SentimentIntensityAnalyzer}!polarity\_scores@{polarity\_scores}}
+\index{polarity\_scores@{polarity\_scores}!vader::SentimentIntensityAnalyzer@{vader::SentimentIntensityAnalyzer}}
+\doxysubsubsection{\texorpdfstring{polarity\_scores()}{polarity\_scores()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structvader_1_1_sentiment}{Sentiment}} vader\+::\+Sentiment\+Intensity\+Analyzer\+::polarity\+\_\+scores (\begin{DoxyParamCaption}\item[{String}]{text }\end{DoxyParamCaption})}
+
+
+
+Calculate sentiment polarity scores for a given text. 
+
+Computes the sentiment scores for a given text.
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & The input text to analyze. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{structvader_1_1_sentiment}{Sentiment}} object containing polarity scores.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em text} & Input text to compute sentiment scores for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \mbox{\hyperlink{structvader_1_1_sentiment}{Sentiment}} object containing the polarity score (sentiments) and text of the comment (text) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classvader_1_1_sentiment_intensity_analyzer_a769294e4aa94fdb7c26fb79f0213633a}\label{classvader_1_1_sentiment_intensity_analyzer_a769294e4aa94fdb7c26fb79f0213633a}} 
+\index{vader::SentimentIntensityAnalyzer@{vader::SentimentIntensityAnalyzer}!score\_valence@{score\_valence}}
+\index{score\_valence@{score\_valence}!vader::SentimentIntensityAnalyzer@{vader::SentimentIntensityAnalyzer}}
+\doxysubsubsection{\texorpdfstring{score\_valence()}{score\_valence()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structvader_1_1_sentiment}{Sentiment}} vader\+::\+Sentiment\+Intensity\+Analyzer\+::score\+\_\+valence (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$ \&}]{sentiments,  }\item[{String}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Calculate sentiment valence scores from given sentiments and text. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sentiments} & Vector of sentiment scores to be processed. \\
+\hline
+{\em text} & Input text to be analyzed for punctuation emphasis. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{structvader_1_1_sentiment}{Sentiment}} object containing compound, pos, neg, and neu sentiment scores. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classvader_1_1_sentiment_intensity_analyzer_adf191c04fc11d7cfe15a85054223e696}\label{classvader_1_1_sentiment_intensity_analyzer_adf191c04fc11d7cfe15a85054223e696}} 
+\index{vader::SentimentIntensityAnalyzer@{vader::SentimentIntensityAnalyzer}!sentiment\_valence@{sentiment\_valence}}
+\index{sentiment\_valence@{sentiment\_valence}!vader::SentimentIntensityAnalyzer@{vader::SentimentIntensityAnalyzer}}
+\doxysubsubsection{\texorpdfstring{sentiment\_valence()}{sentiment\_valence()}}
+{\footnotesize\ttfamily void vader\+::\+Sentiment\+Intensity\+Analyzer\+::sentiment\+\_\+valence (\begin{DoxyParamCaption}\item[{double}]{valence,  }\item[{\mbox{\hyperlink{classvader_1_1_senti_text}{Senti\+Text}}}]{sentitext,  }\item[{String}]{item,  }\item[{int}]{i,  }\item[{std\+::vector$<$ double $>$ \&}]{sentiments }\end{DoxyParamCaption})}
+
+
+
+Calculate sentiment valence for a given item in the text. 
+
+Computes the sentiment valence of a given word or emoticon.
+
+
+\begin{DoxyParams}{Parameters}
+{\em valence} & Current sentiment valence. \\
+\hline
+{\em sentitext} & \mbox{\hyperlink{classvader_1_1_senti_text}{Senti\+Text}} object representing the input text. \\
+\hline
+{\em item} & Current item (word or emoticon) being analyzed. \\
+\hline
+{\em i} & Index of the current item in the text. \\
+\hline
+{\em sentiments} & Vector of sentiment scores to be updated.\\
+\hline
+{\em valence} & The sentiment valence to be computed \\
+\hline
+{\em sentitext} & A \mbox{\hyperlink{classvader_1_1_senti_text}{Senti\+Text}} object containing the text to analyze \\
+\hline
+{\em item} & A word or emoticon to analyze \\
+\hline
+{\em i} & The index of the word or emoticon in the text \\
+\hline
+{\em sentiments} & A reference to a vector of double values representing the sentiments \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_sentiment_intensity_analyzer_8hpp}{Sentiment\+Intensity\+Analyzer.\+hpp}}\item 
+Sentiment\+Intensity\+Analyzer.\+cpp\end{DoxyCompactItemize}

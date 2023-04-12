@@ -1,0 +1,67 @@
+\hypertarget{video_8h_source}{}\doxysection{video.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ Desc:\ header\ for\ the\ Video\ class\ of\ the\ Senty\ program}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//Group:\ 26}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ Guards}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#ifndef\ VIDEO\_H\ }}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ VIDEO\_H}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <nlohmann/json.hpp>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{comment_8h}{comment.h}}"{}}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}request.h"{}}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{using\ }json\ =\ nlohmann::json;}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_video}{Video}}\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_video_1_1_video_info}{VideoInfo}}\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ vidID;}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ publishedAt;}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ channelId;}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ title;}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ description;}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::string>\ tags;}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ channelTitle;}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ defaultAudioLanguage;}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ duration;}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ caption;}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ definition;}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ viewCount;}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ likeCount;}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ favoriteCount;}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::string>\ topicCategories;}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ privacyStatus;}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_comment_1_1_comment_info}{Comment::CommentInfo}}\ commentSect;}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ likeViewRatio\ =\ 0;}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ commentViewRatio\ =\ 0;}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_video}{Video}}(std::string\ videoID,\ std::string\ apiKey);}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_video}{\string~Video}}();}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{class_video_a447a85917c6dec998ed2c8d9c1f6499e}{fetchVideo}}(std::string\ videoID,\ std::string\ apiKey);}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{class_video_ac521c2b322a5d5979f2cbb95dd39d217}{fetchRecommended}}(std::string\ videoID,\ std::string\ apiKey);}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_video_aebda0d36a186694f9f7c21c34afa3b4a}{setVideoData}}(\textcolor{keyword}{const}\ json\&\ json);}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_video_a30d003913cffd489a92243dccf1dbf88}{printVideoComments}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_video_a43dad2148a653b006b6f162c40e0207b}{printVideoInfo}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_video_af75342570ad2a17b66279c269d0610e3}{printAnalysis}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_video_1_1_video_info}{Video::VideoInfo}}\ v)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_video_1_1_video_info}{Video::VideoInfo}}\ \mbox{\hyperlink{class_video_aef3d0d9d5afc51c1db4f795cb8ae6069}{getVideoObj}}();}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_video_ae412744c399399e4c484a594508be7bf}{setRatioAnalysis}}(\mbox{\hyperlink{struct_video_1_1_video_info}{Video::VideoInfo}}\&\ v);}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_video_a30a2f87972190d9413d48c35227292a4}{printRatioAnalysis}}(\mbox{\hyperlink{struct_video_1_1_video_info}{Video::VideoInfo}}\ v)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_video_a1ca67ca4ac2eddf32b7e7860d71a5085}{suggestionAnalysis}}(\mbox{\hyperlink{struct_video_1_1_video_info}{Video::VideoInfo}}\ v)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ std::vector<Video::VideoInfo>\ videos;}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_video_1_1_video_info}{Video::VideoInfo}}\ v;}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_comment}{Comment}}\ commentSection;}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \};}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#endif\ }}
+
+\end{DoxyCode}

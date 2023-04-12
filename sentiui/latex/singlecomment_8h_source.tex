@@ -1,0 +1,53 @@
+\hypertarget{singlecomment_8h_source}{}\doxysection{singlecomment.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#ifndef\ SINGLECOMMENT\_H}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ SINGLECOMMENT\_H}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <nlohmann/json.hpp>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}request.h"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{analysis_8h}{analysis.h}}"{}}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{using\ }json\ =\ nlohmann::json;}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_single_comment}{SingleComment}}\ \{}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_single_comment_1_1_single_comment_info}{SingleCommentInfo}}\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ std::string\ id;}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ std::string\ author;}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ std::string\ commenterProfileImageUrl;}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ std::string\ text;}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ likeCount;}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ std::string\ publishedAt;}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ std::string\ updatedAt;}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_score}{Score}}\ commentScore;}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ std::string\ intensity;}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ std::string\ direction;}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isEn;}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ std::pair<std::string,\ std::string>\ conclusion;}
+\DoxyCodeLine{00043\ \ \ \ \ \};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{class_single_comment_a7f4332d6599a0f93f2bb49cc76ec7b9a}{SingleComment}}();}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{class_single_comment_a1699086c12ff15f1248a3b155975131a}{\string~SingleComment}}();}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{struct_single_comment_1_1_single_comment_info}{SingleCommentInfo}}\ \mbox{\hyperlink{class_single_comment_aa44d088595adc7b8de02281f175ca452}{setSingleComment}}(\textcolor{keyword}{const}\ nlohmann::json\&\ singleComment);}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_single_comment_a8b2e222bbf35ad6721cfb766e7d83525}{setConclusion}}(\mbox{\hyperlink{struct_single_comment_1_1_single_comment_info}{SingleCommentInfo}}\ c);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00072\ \ \ \ \ \mbox{\hyperlink{class_analysis}{Analysis}}\ analysis;}
+\DoxyCodeLine{00073\ \ \ \ \ \mbox{\hyperlink{struct_score}{Score}}\ overallScore;}
+\DoxyCodeLine{00074\ \ \ \ \ std::string\ y\_url;}
+\DoxyCodeLine{00075\ \};}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ }
+
+\end{DoxyCode}

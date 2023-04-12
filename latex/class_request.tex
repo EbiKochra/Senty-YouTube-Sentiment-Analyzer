@@ -1,0 +1,230 @@
+\hypertarget{class_request}{}\doxysection{Request Class Reference}
+\label{class_request}\index{Request@{Request}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_request_1_1_memory_struct}{Memory\+Struct}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_request_af375e9ff6d16c92feca92d6503dde709}\label{class_request_af375e9ff6d16c92feca92d6503dde709}} 
+{\bfseries Request} (const std\+::string \&url)
+\item 
+bool \mbox{\hyperlink{class_request_afdd4c7bdc380667a26e8176c0817c38e}{execute}} ()
+\begin{DoxyCompactList}\small\item\em executes the request at the specified url, stores to memory \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_request_a4cea54814cefea9b33d1a6e5dea160d2}{execute\+Tln}} (std\+::string url, std\+::string request\+Body)
+\begin{DoxyCompactList}\small\item\em similar to execute; executes requests to the Translation API \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_request_a46245b6853bdd028593f0259d2952224}{result}} () const
+\begin{DoxyCompactList}\small\item\em returns the response from the api as a string \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_request_a95e0fba6c5568b24c46e3d98b98cca50}{extract\+Video\+ID}} ()
+\begin{DoxyCompactList}\small\item\em gets the video\+Id from the given url \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_request_a593dd3d39cfb9a4573c9f6cd3d780f3d}{get\+Error\+Msg}} () const
+\begin{DoxyCompactList}\small\item\em getter for error\+Msg attribute \end{DoxyCompactList}\item 
+json \mbox{\hyperlink{class_request_aeb5fd0e286de106139859c5817d2fbd8}{get\+Json}} ()
+\begin{DoxyCompactList}\small\item\em getter for j\+Response attribute \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_request_a0f86fc971bfe939f2ae447b0a1119bb3}{get\+Link}} () const
+\begin{DoxyCompactList}\small\item\em getter for y\+\_\+link attribute \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static size\+\_\+t \mbox{\hyperlink{class_request_ae24aa46620d4323a3dedf74b7f38d123}{write\+Memory\+Callback}} (void $\ast$contents, size\+\_\+t size, size\+\_\+t nmemb, void $\ast$userp)
+\begin{DoxyCompactList}\small\item\em This is used by curl to write data returned from API. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_request_a30857fa1b1c7f72eae0bf8715afca24e}\label{class_request_a30857fa1b1c7f72eae0bf8715afca24e}} 
+std\+::string {\bfseries url}
+\item 
+\mbox{\Hypertarget{class_request_ad0ee1188cb3f1abd8e791e376ecbf6be}\label{class_request_ad0ee1188cb3f1abd8e791e376ecbf6be}} 
+std\+::string {\bfseries response}
+\item 
+\mbox{\Hypertarget{class_request_ae0181545af200b71d46f7c054ec49eed}\label{class_request_ae0181545af200b71d46f7c054ec49eed}} 
+std\+::string {\bfseries error\+Msg}
+\item 
+\mbox{\Hypertarget{class_request_ab2dc44568325b030b88603d4fdfc6bd2}\label{class_request_ab2dc44568325b030b88603d4fdfc6bd2}} 
+std\+::string {\bfseries y\+\_\+link}
+\item 
+\mbox{\Hypertarget{class_request_ac90dbe762faf1c456bf047e864b2bf33}\label{class_request_ac90dbe762faf1c456bf047e864b2bf33}} 
+std\+::string {\bfseries y\+\_\+id}
+\item 
+\mbox{\Hypertarget{class_request_a922ff59e7ff13210383d402c9ec3d97c}\label{class_request_a922ff59e7ff13210383d402c9ec3d97c}} 
+json {\bfseries j\+Response}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_request_afdd4c7bdc380667a26e8176c0817c38e}\label{class_request_afdd4c7bdc380667a26e8176c0817c38e}} 
+\index{Request@{Request}!execute@{execute}}
+\index{execute@{execute}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{execute()}{execute()}}
+{\footnotesize\ttfamily bool Request\+::execute (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+executes the request at the specified url, stores to memory 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if request was executed, else, returns false and an error message 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Authors}
+Adrian, Emily, Karanvir, Muhammad, Salar 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_request_a4cea54814cefea9b33d1a6e5dea160d2}\label{class_request_a4cea54814cefea9b33d1a6e5dea160d2}} 
+\index{Request@{Request}!executeTln@{executeTln}}
+\index{executeTln@{executeTln}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{executeTln()}{executeTln()}}
+{\footnotesize\ttfamily bool Request\+::execute\+Tln (\begin{DoxyParamCaption}\item[{std\+::string}]{url,  }\item[{std\+::string}]{request\+Body }\end{DoxyParamCaption})}
+
+
+
+similar to execute; executes requests to the Translation API 
+
+
+\begin{DoxyParams}{Parameters}
+{\em url,request\+Body} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if request was executed, false and an error message if not 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Authors}
+Adrian, Emily, Karanvir, Muhammad, Salar 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_request_a95e0fba6c5568b24c46e3d98b98cca50}\label{class_request_a95e0fba6c5568b24c46e3d98b98cca50}} 
+\index{Request@{Request}!extractVideoID@{extractVideoID}}
+\index{extractVideoID@{extractVideoID}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{extractVideoID()}{extractVideoID()}}
+{\footnotesize\ttfamily std\+::string Request\+::extract\+Video\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+gets the video\+Id from the given url 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+video\+ID as a string 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Authors}
+Adrian, Emily, Karanvir, Muhammad, Salar 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_request_a593dd3d39cfb9a4573c9f6cd3d780f3d}\label{class_request_a593dd3d39cfb9a4573c9f6cd3d780f3d}} 
+\index{Request@{Request}!getErrorMsg@{getErrorMsg}}
+\index{getErrorMsg@{getErrorMsg}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{getErrorMsg()}{getErrorMsg()}}
+{\footnotesize\ttfamily std\+::string Request\+::get\+Error\+Msg (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+getter for error\+Msg attribute 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+error\+Msg 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Authors}
+Adrian, Emily, Karanvir, Muhammad, Salar 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_request_aeb5fd0e286de106139859c5817d2fbd8}\label{class_request_aeb5fd0e286de106139859c5817d2fbd8}} 
+\index{Request@{Request}!getJson@{getJson}}
+\index{getJson@{getJson}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{getJson()}{getJson()}}
+{\footnotesize\ttfamily json Request\+::get\+Json (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+getter for j\+Response attribute 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+j\+Response 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Authors}
+Adrian, Emily, Karanvir, Muhammad, Salar 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_request_a0f86fc971bfe939f2ae447b0a1119bb3}\label{class_request_a0f86fc971bfe939f2ae447b0a1119bb3}} 
+\index{Request@{Request}!getLink@{getLink}}
+\index{getLink@{getLink}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{getLink()}{getLink()}}
+{\footnotesize\ttfamily std\+::string Request\+::get\+Link (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+getter for y\+\_\+link attribute 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+y\+\_\+link 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Authors}
+Adrian, Emily, Karanvir, Muhammad, Salar 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_request_a46245b6853bdd028593f0259d2952224}\label{class_request_a46245b6853bdd028593f0259d2952224}} 
+\index{Request@{Request}!result@{result}}
+\index{result@{result}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{result()}{result()}}
+{\footnotesize\ttfamily std\+::string Request\+::result (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+returns the response from the api as a string 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+response 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Authors}
+Adrian, Emily, Karanvir, Muhammad, Salar 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{class_request_ae24aa46620d4323a3dedf74b7f38d123}\label{class_request_ae24aa46620d4323a3dedf74b7f38d123}} 
+\index{Request@{Request}!writeMemoryCallback@{writeMemoryCallback}}
+\index{writeMemoryCallback@{writeMemoryCallback}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{writeMemoryCallback()}{writeMemoryCallback()}}
+{\footnotesize\ttfamily size\+\_\+t Request\+::write\+Memory\+Callback (\begin{DoxyParamCaption}\item[{void $\ast$}]{contents,  }\item[{size\+\_\+t}]{size,  }\item[{size\+\_\+t}]{nmemb,  }\item[{void $\ast$}]{userp }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+This is used by curl to write data returned from API. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$contents,size,nmemb,$\ast$userp} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns the size\+\_\+t real size of the data written into memory 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Authors}
+Adrian, Emily, Karanvir, Muhammad, Salar 
+\end{DoxyAuthor}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+request.\+h\item 
+request.\+cpp\end{DoxyCompactItemize}

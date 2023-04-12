@@ -1,0 +1,79 @@
+\hypertarget{comment_8h_source}{}\doxysection{comment.\+h}
+\mbox{\hyperlink{comment_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ Guards}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifndef\ COMMENT\_H}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ COMMENT\_H}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <nlohmann/json.hpp>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}singlecomment.h"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}request.h"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{analysis_8h}{analysis.h}}"{}}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{using\ }json\ =\ nlohmann::json;}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_comment}{Comment}}\ \{}
+\DoxyCodeLine{00026\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_comment_1_1_comment_info}{CommentInfo}}\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ std::vector<SingleComment::SingleCommentInfo>\ \mbox{\hyperlink{struct_comment_1_1_comment_info_a14b5bb2eba2f8c6ed461de983a8bc760}{comments}};\ }
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ std::vector<std::string>\ \mbox{\hyperlink{struct_comment_1_1_comment_info_aa3676a90c7d489230dc795c68983effb}{commentString}};\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_score}{Score}}\ \mbox{\hyperlink{struct_comment_1_1_comment_info_a7c82cd344145fbf3d3bd29065b9c3560}{overallScore}};\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{struct_comment_1_1_comment_info_af5919f4b29616d9a1f3e94210da53fd8}{intensity}};\ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{struct_comment_1_1_comment_info_a037b42a2d503ac187d6f8a35298856bf}{direction}};\ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_comment_1_1_comment_info_aa5fc296637c0fe9f1b424da5b2286630}{numComments}}\ =\ 0;\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ std::pair<std::string,\ std::string>\ \mbox{\hyperlink{struct_comment_1_1_comment_info_a9ca270174b870379c3134b66ebd19ad7}{conclusion}};\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ std::map<std::string,\ int>\ conclusionCounts\ =\ \{\ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}numPos"{}},\ 0\},}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}numNeg"{}},\ 0\},}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}numNeu"{}},\ 0\}}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00043\ \ \ \ \ \};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{class_comment}{Comment}}(std::string\ videoID,\ std::string\ apiKey);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{class_comment}{Comment}}(json\&\ jsonInfo);}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{class_comment_aea2c5f6168b3bfdc1dbb7bb99ac44454}{\string~Comment}}();}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00067\ \ \ \ \ \mbox{\hyperlink{struct_comment_1_1_comment_info}{Comment::CommentInfo}}\ \mbox{\hyperlink{class_comment_aad9a92909852c91fc01d8c5415d8665b}{getCommentSect}}();}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00075\ \ \ \ \ std::vector<std::string>\ \mbox{\hyperlink{class_comment_a9fbf9de1bddef2b5ad6493f612edf940}{fetchComments}}(std::string\ videoID,\ std::string\ apiKey);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_comment_a46b6097eda2071b5cd8c7695b432e7d1}{fetchPageComments}}(std::string\ fullUrl);}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_comment_a6b4091c4ec2ffc77cf04408f283da3ec}{importComments}}(json\&\ commentJson);}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_comment_aa2b42f12234dc511c50ccdba5e8c3da0}{printComments}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00099\ \ \ \ \ std::vector<SingleComment::SingleCommentInfo>\ \mbox{\hyperlink{class_comment_a71d8c4cc61d9646d6622f4f135cb1bb1}{getAllCommentsObj}}();}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_comment_a2a237dd51275f4e9c9782a02853eb5a5}{getCommentCount}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00112\ \ \ \ \ \mbox{\hyperlink{struct_score}{Score}}\ \mbox{\hyperlink{class_comment_a52edaab2b54e93b5c928255f7cb8c864}{getCommentScore}}(\mbox{\hyperlink{struct_single_comment_1_1_single_comment_info}{SingleComment::SingleCommentInfo}}\&\ commentObj)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_comment_a8bd7d3daaf247836bfb9b54547f5db3b}{setCommentSectScore}}();}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_comment_a1ea1abb0c13fe722b767b8cbd723779a}{setConclusion}}();}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{comment}{//\ Getter\ methods}}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_comment_a777164d7d3069d86c3c5703c9c9fc265}{getPosNum}}();}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_comment_afacedcd5e68cc583aa3af615c19312dc}{getNegNum}}();}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_comment_aaef234ad1f79c652820f3d1d2b9b4a40}{getNeuNum}}();}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00144\ \ \ \ \ \mbox{\hyperlink{struct_comment_1_1_comment_info}{Comment::CommentInfo}}\ \mbox{\hyperlink{class_comment_a9f8f864063e03b72345cb2418726eef5}{commentSect}};\ }
+\DoxyCodeLine{00145\ \ \ \ \ \mbox{\hyperlink{class_analysis}{Analysis}}\ \mbox{\hyperlink{class_comment_a2998feaf4b142d8eee6fd4496f3dcd21}{analysis}};\ }
+\DoxyCodeLine{00146\ \ \ \ \ std::string\ \mbox{\hyperlink{class_comment_ab9259e9449d5074f8082d75b1ec82fe6}{y\_url}};\ }
+\DoxyCodeLine{00147\ \ \ \ \ std::string\ \mbox{\hyperlink{class_comment_ab75a4ef671908ac34a8e073083d1ed02}{nextPageToken}}\ =\ \textcolor{stringliteral}{"{}"{}};\ }
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_comment_aebaee8f5ac6e7329455c06c124506ab5}{nextPageAvailable}};\ }
+\DoxyCodeLine{00149\ \};}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00152\ }
+
+\end{DoxyCode}

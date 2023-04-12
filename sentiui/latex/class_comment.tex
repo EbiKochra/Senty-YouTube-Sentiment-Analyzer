@@ -1,0 +1,426 @@
+\hypertarget{class_comment}{}\doxysection{Comment Class Reference}
+\label{class_comment}\index{Comment@{Comment}}
+
+
+\mbox{\hyperlink{class_comment}{Comment}} class with attributes representing the comment section of a video, and methods to retrieve individual comment information.  
+
+
+
+
+{\ttfamily \#include $<$comment.\+h$>$}
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_comment_1_1_comment_info}{Comment\+Info}}
+\begin{DoxyCompactList}\small\item\em Structure for \mbox{\hyperlink{struct_comment_1_1_comment_info}{Comment\+Info}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_comment_a8ba4761c2a480a8cff578d0f0b7a3120}{Comment}} (std\+::string video\+ID, std\+::string api\+Key)
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{class_comment}{Comment}} class with video\+ID and api\+Key. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_comment_a9b3436b46cc15854656c401a87370d6c}{Comment}} (json \&json\+Info)
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{class_comment}{Comment}} class with json\+Info. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_comment_aea2c5f6168b3bfdc1dbb7bb99ac44454}\label{class_comment_aea2c5f6168b3bfdc1dbb7bb99ac44454}} 
+{\bfseries $\sim$\+Comment} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \mbox{\hyperlink{class_comment}{Comment}} class. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_comment_1_1_comment_info}{Comment\+::\+Comment\+Info}} \mbox{\hyperlink{class_comment_aad9a92909852c91fc01d8c5415d8665b}{get\+Comment\+Sect}} ()
+\begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{struct_comment_1_1_comment_info}{Comment\+Info}} object. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{class_comment_a9fbf9de1bddef2b5ad6493f612edf940}{fetch\+Comments}} (std\+::string video\+ID, std\+::string api\+Key)
+\begin{DoxyCompactList}\small\item\em Fetch comments for a given video ID and API key. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_comment_a46b6097eda2071b5cd8c7695b432e7d1}{fetch\+Page\+Comments}} (std\+::string full\+Url)
+\begin{DoxyCompactList}\small\item\em Fetch page comments for a given URL. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_comment_a6b4091c4ec2ffc77cf04408f283da3ec}{import\+Comments}} (json \&comment\+Json)
+\begin{DoxyCompactList}\small\item\em Import comments from a json object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_comment_aa2b42f12234dc511c50ccdba5e8c3da0}{print\+Comments}} () const
+\begin{DoxyCompactList}\small\item\em Print comments to console. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{struct_single_comment_1_1_single_comment_info}{Single\+Comment\+::\+Single\+Comment\+Info}} $>$ \mbox{\hyperlink{class_comment_a71d8c4cc61d9646d6622f4f135cb1bb1}{get\+All\+Comments\+Obj}} ()
+\begin{DoxyCompactList}\small\item\em Get all comment objects. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_comment_a2a237dd51275f4e9c9782a02853eb5a5}{get\+Comment\+Count}} () const
+\begin{DoxyCompactList}\small\item\em Get comment count. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_score}{Score}} \mbox{\hyperlink{class_comment_a52edaab2b54e93b5c928255f7cb8c864}{get\+Comment\+Score}} (\mbox{\hyperlink{struct_single_comment_1_1_single_comment_info}{Single\+Comment\+::\+Single\+Comment\+Info}} \&comment\+Obj) const
+\begin{DoxyCompactList}\small\item\em Get comment score. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_comment_a8bd7d3daaf247836bfb9b54547f5db3b}{set\+Comment\+Sect\+Score}} ()
+\begin{DoxyCompactList}\small\item\em Set comment section score. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_comment_a1ea1abb0c13fe722b767b8cbd723779a}{set\+Conclusion}} ()
+\begin{DoxyCompactList}\small\item\em Set conclusion based on comment scores. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_comment_a777164d7d3069d86c3c5703c9c9fc265}{get\+Pos\+Num}} ()
+\begin{DoxyCompactList}\small\item\em Get the number of positive comments. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_comment_afacedcd5e68cc583aa3af615c19312dc}{get\+Neg\+Num}} ()
+\begin{DoxyCompactList}\small\item\em Get the number of negative comments. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_comment_aaef234ad1f79c652820f3d1d2b9b4a40}{get\+Neu\+Num}} ()
+\begin{DoxyCompactList}\small\item\em Get the number of neutral comments. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_comment_a9f8f864063e03b72345cb2418726eef5}\label{class_comment_a9f8f864063e03b72345cb2418726eef5}} 
+\mbox{\hyperlink{struct_comment_1_1_comment_info}{Comment\+::\+Comment\+Info}} {\bfseries comment\+Sect}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{struct_comment_1_1_comment_info}{Comment\+Info}} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_comment_a2998feaf4b142d8eee6fd4496f3dcd21}\label{class_comment_a2998feaf4b142d8eee6fd4496f3dcd21}} 
+\mbox{\hyperlink{class_analysis}{Analysis}} {\bfseries analysis}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_analysis}{Analysis}} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_comment_ab9259e9449d5074f8082d75b1ec82fe6}\label{class_comment_ab9259e9449d5074f8082d75b1ec82fe6}} 
+std\+::string {\bfseries y\+\_\+url}
+\begin{DoxyCompactList}\small\item\em You\+Tube URL string. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_comment_ab75a4ef671908ac34a8e073083d1ed02}\label{class_comment_ab75a4ef671908ac34a8e073083d1ed02}} 
+std\+::string {\bfseries next\+Page\+Token} = \char`\"{}\char`\"{}
+\begin{DoxyCompactList}\small\item\em Next page token string. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_comment_aebaee8f5ac6e7329455c06c124506ab5}\label{class_comment_aebaee8f5ac6e7329455c06c124506ab5}} 
+bool {\bfseries next\+Page\+Available}
+\begin{DoxyCompactList}\small\item\em Flag indicating if the next page is available. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_comment}{Comment}} class with attributes representing the comment section of a video, and methods to retrieve individual comment information. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_comment_a8ba4761c2a480a8cff578d0f0b7a3120}\label{class_comment_a8ba4761c2a480a8cff578d0f0b7a3120}} 
+\index{Comment@{Comment}!Comment@{Comment}}
+\index{Comment@{Comment}!Comment@{Comment}}
+\doxysubsubsection{\texorpdfstring{Comment()}{Comment()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Comment\+::\+Comment (\begin{DoxyParamCaption}\item[{std\+::string}]{video\+ID,  }\item[{std\+::string}]{api\+Key }\end{DoxyParamCaption})}
+
+
+
+Constructor for \mbox{\hyperlink{class_comment}{Comment}} class with video\+ID and api\+Key. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em video\+ID} & \mbox{\hyperlink{class_video}{Video}} ID string \\
+\hline
+{\em api\+Key} & API key string \\
+\hline
+\end{DoxyParams}
+Given a video ID extracted by \mbox{\hyperlink{class_request}{Request}} class and an api\+Key, retrieves all comments from a video.
+
+
+\begin{DoxyParams}{Parameters}
+{\em video\+ID} & A string representing the video ID of the You\+Tube video to fetch comments for. \\
+\hline
+{\em api\+Key} & A string representing the API key to authenticate with the You\+Tube API.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_comment_a9b3436b46cc15854656c401a87370d6c}\label{class_comment_a9b3436b46cc15854656c401a87370d6c}} 
+\index{Comment@{Comment}!Comment@{Comment}}
+\index{Comment@{Comment}!Comment@{Comment}}
+\doxysubsubsection{\texorpdfstring{Comment()}{Comment()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Comment\+::\+Comment (\begin{DoxyParamCaption}\item[{json \&}]{json\+Info }\end{DoxyParamCaption})}
+
+
+
+Constructor for \mbox{\hyperlink{class_comment}{Comment}} class with json\+Info. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em json\+Info} & Reference to a json object \\
+\hline
+\end{DoxyParams}
+Constructor for \mbox{\hyperlink{class_comment}{Comment}} class, given JSON info.
+
+
+\begin{DoxyParams}{Parameters}
+{\em json\+Info} & A JSON object containing information related to a comment.\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_comment_a9fbf9de1bddef2b5ad6493f612edf940}\label{class_comment_a9fbf9de1bddef2b5ad6493f612edf940}} 
+\index{Comment@{Comment}!fetchComments@{fetchComments}}
+\index{fetchComments@{fetchComments}!Comment@{Comment}}
+\doxysubsubsection{\texorpdfstring{fetchComments()}{fetchComments()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ Comment\+::fetch\+Comments (\begin{DoxyParamCaption}\item[{std\+::string}]{video\+ID,  }\item[{std\+::string}]{api\+Key }\end{DoxyParamCaption})}
+
+
+
+Fetch comments for a given video ID and API key. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em video\+ID} & \mbox{\hyperlink{class_video}{Video}} ID string \\
+\hline
+{\em api\+Key} & API key string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector of comment strings 
+\end{DoxyReturn}
+Given a video ID extracted by \mbox{\hyperlink{class_request}{Request}} class and an api\+Key, retrieves all comments from a video.
+
+
+\begin{DoxyParams}{Parameters}
+{\em video\+ID} & A string representing the video ID of the You\+Tube video to fetch comments for. \\
+\hline
+{\em api\+Key} & A string representing the API key to authenticate with the You\+Tube API.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns a vector of all comments associated with the given video ID.
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_comment_a46b6097eda2071b5cd8c7695b432e7d1}\label{class_comment_a46b6097eda2071b5cd8c7695b432e7d1}} 
+\index{Comment@{Comment}!fetchPageComments@{fetchPageComments}}
+\index{fetchPageComments@{fetchPageComments}!Comment@{Comment}}
+\doxysubsubsection{\texorpdfstring{fetchPageComments()}{fetchPageComments()}}
+{\footnotesize\ttfamily bool Comment\+::fetch\+Page\+Comments (\begin{DoxyParamCaption}\item[{std\+::string}]{full\+Url }\end{DoxyParamCaption})}
+
+
+
+Fetch page comments for a given URL. 
+
+Gets the comments for one specific page of comments (100 comments max)
+
+
+\begin{DoxyParams}{Parameters}
+{\em full\+Url} & URL string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if page comments fetched successfully, false otherwise
+\end{DoxyReturn}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em full\+Url} & The URL for the API call\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if there are still more comments to get, False if there are no more comments to fetch 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_comment_a71d8c4cc61d9646d6622f4f135cb1bb1}\label{class_comment_a71d8c4cc61d9646d6622f4f135cb1bb1}} 
+\index{Comment@{Comment}!getAllCommentsObj@{getAllCommentsObj}}
+\index{getAllCommentsObj@{getAllCommentsObj}!Comment@{Comment}}
+\doxysubsubsection{\texorpdfstring{getAllCommentsObj()}{getAllCommentsObj()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{struct_single_comment_1_1_single_comment_info}{Single\+Comment\+::\+Single\+Comment\+Info}} $>$ Comment\+::get\+All\+Comments\+Obj (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get all comment objects. 
+
+Gets all comment objects (\textquotesingle{}\mbox{\hyperlink{class_single_comment}{Single\+Comment}}\textquotesingle{}s)
+
+\begin{DoxyReturn}{Returns}
+Vector of Single\+Comment\+Info objects
+
+returns all retrieved comments as a vector of \mbox{\hyperlink{class_single_comment}{Single\+Comment}} objects 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_comment_a2a237dd51275f4e9c9782a02853eb5a5}\label{class_comment_a2a237dd51275f4e9c9782a02853eb5a5}} 
+\index{Comment@{Comment}!getCommentCount@{getCommentCount}}
+\index{getCommentCount@{getCommentCount}!Comment@{Comment}}
+\doxysubsubsection{\texorpdfstring{getCommentCount()}{getCommentCount()}}
+{\footnotesize\ttfamily int Comment\+::get\+Comment\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get comment count. 
+
+Getter method for number of comments in the comments section of a video.
+
+\begin{DoxyReturn}{Returns}
+Number of comments
+
+integer representing the number of comments in a comment section 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_comment_a52edaab2b54e93b5c928255f7cb8c864}\label{class_comment_a52edaab2b54e93b5c928255f7cb8c864}} 
+\index{Comment@{Comment}!getCommentScore@{getCommentScore}}
+\index{getCommentScore@{getCommentScore}!Comment@{Comment}}
+\doxysubsubsection{\texorpdfstring{getCommentScore()}{getCommentScore()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_score}{Score}} Comment\+::get\+Comment\+Score (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_single_comment_1_1_single_comment_info}{Single\+Comment\+::\+Single\+Comment\+Info}} \&}]{comment\+Obj }\end{DoxyParamCaption}) const}
+
+
+
+Get comment score. 
+
+Getter for comment score.
+
+
+\begin{DoxyParams}{Parameters}
+{\em comment\+Obj} & Reference to a Single\+Comment\+Info object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{struct_score}{Score}} object for the associated comment
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em comment\+Obj} & reference to a Single\+Comment\+Info object, accesses and retrieves its score \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the \mbox{\hyperlink{struct_score}{Score}} object representing the overall score of a comment 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_comment_aad9a92909852c91fc01d8c5415d8665b}\label{class_comment_aad9a92909852c91fc01d8c5415d8665b}} 
+\index{Comment@{Comment}!getCommentSect@{getCommentSect}}
+\index{getCommentSect@{getCommentSect}!Comment@{Comment}}
+\doxysubsubsection{\texorpdfstring{getCommentSect()}{getCommentSect()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_comment_1_1_comment_info}{Comment\+::\+Comment\+Info}} Comment\+::get\+Comment\+Sect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the \mbox{\hyperlink{struct_comment_1_1_comment_info}{Comment\+Info}} object. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{struct_comment_1_1_comment_info}{Comment\+Info}} object 
+\end{DoxyReturn}
+Getter for all comments in video from \mbox{\hyperlink{struct_comment_1_1_comment_info}{Comment\+Info}} structure.
+
+\begin{DoxyReturn}{Returns}
+Returns a \mbox{\hyperlink{struct_comment_1_1_comment_info}{Comment\+Info}} object representing all comments for a given video.
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_comment_afacedcd5e68cc583aa3af615c19312dc}\label{class_comment_afacedcd5e68cc583aa3af615c19312dc}} 
+\index{Comment@{Comment}!getNegNum@{getNegNum}}
+\index{getNegNum@{getNegNum}!Comment@{Comment}}
+\doxysubsubsection{\texorpdfstring{getNegNum()}{getNegNum()}}
+{\footnotesize\ttfamily int Comment\+::get\+Neg\+Num (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the number of negative comments. 
+
+Gets the number of negative comments attribute of the comment section object.
+
+\begin{DoxyReturn}{Returns}
+Number of negative comments
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em none;} & accesses and returns an attribute of the object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+an integer representing the number of \textquotesingle{}negative comments\textquotesingle{} (comments w/ a negative conclusion) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_comment_aaef234ad1f79c652820f3d1d2b9b4a40}\label{class_comment_aaef234ad1f79c652820f3d1d2b9b4a40}} 
+\index{Comment@{Comment}!getNeuNum@{getNeuNum}}
+\index{getNeuNum@{getNeuNum}!Comment@{Comment}}
+\doxysubsubsection{\texorpdfstring{getNeuNum()}{getNeuNum()}}
+{\footnotesize\ttfamily int Comment\+::get\+Neu\+Num (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the number of neutral comments. 
+
+Getter method for the number of neutral comments attribute of the comment section object.
+
+\begin{DoxyReturn}{Returns}
+Number of neutral comments
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An integer representing the number of \textquotesingle{}neutral comments\textquotesingle{} (comments w/ a neutral conclusion) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_comment_a777164d7d3069d86c3c5703c9c9fc265}\label{class_comment_a777164d7d3069d86c3c5703c9c9fc265}} 
+\index{Comment@{Comment}!getPosNum@{getPosNum}}
+\index{getPosNum@{getPosNum}!Comment@{Comment}}
+\doxysubsubsection{\texorpdfstring{getPosNum()}{getPosNum()}}
+{\footnotesize\ttfamily int Comment\+::get\+Pos\+Num (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the number of positive comments. 
+
+Gets the number of positive comments attribute of the comment section object.
+
+\begin{DoxyReturn}{Returns}
+Number of positive comments
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em none;} & accesses and returns an attribute of the object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+an integer representing the number of \textquotesingle{}positive comments\textquotesingle{} (comments w/ a positive conclusion) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_comment_a6b4091c4ec2ffc77cf04408f283da3ec}\label{class_comment_a6b4091c4ec2ffc77cf04408f283da3ec}} 
+\index{Comment@{Comment}!importComments@{importComments}}
+\index{importComments@{importComments}!Comment@{Comment}}
+\doxysubsubsection{\texorpdfstring{importComments()}{importComments()}}
+{\footnotesize\ttfamily void Comment\+::import\+Comments (\begin{DoxyParamCaption}\item[{json \&}]{comment\+Json }\end{DoxyParamCaption})}
+
+
+
+Import comments from a json object. 
+
+Adds comments to the comments section from the JSON text.
+
+
+\begin{DoxyParams}{Parameters}
+{\em comment\+Json} & Reference to a json object\\
+\hline
+\end{DoxyParams}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em comment\+Json} & JSON text of comment thread\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void, but sets Comments section scores and assigns values to single comments 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_comment_aa2b42f12234dc511c50ccdba5e8c3da0}\label{class_comment_aa2b42f12234dc511c50ccdba5e8c3da0}} 
+\index{Comment@{Comment}!printComments@{printComments}}
+\index{printComments@{printComments}!Comment@{Comment}}
+\doxysubsubsection{\texorpdfstring{printComments()}{printComments()}}
+{\footnotesize\ttfamily void Comment\+::print\+Comments (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Print comments to console. 
+
+Prints all comments from vector of Single\+Comments.
+
+\begin{DoxyReturn}{Returns}
+void, however comments are outputted to the console 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_comment_a8bd7d3daaf247836bfb9b54547f5db3b}\label{class_comment_a8bd7d3daaf247836bfb9b54547f5db3b}} 
+\index{Comment@{Comment}!setCommentSectScore@{setCommentSectScore}}
+\index{setCommentSectScore@{setCommentSectScore}!Comment@{Comment}}
+\doxysubsubsection{\texorpdfstring{setCommentSectScore()}{setCommentSectScore()}}
+{\footnotesize\ttfamily void Comment\+::set\+Comment\+Sect\+Score (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Set comment section score. 
+
+Gets the overall score of the comment section by using the individual comments\textquotesingle{} scores.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void; sets the comment section scores and assigns values to single comments 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_comment_a1ea1abb0c13fe722b767b8cbd723779a}\label{class_comment_a1ea1abb0c13fe722b767b8cbd723779a}} 
+\index{Comment@{Comment}!setConclusion@{setConclusion}}
+\index{setConclusion@{setConclusion}!Comment@{Comment}}
+\doxysubsubsection{\texorpdfstring{setConclusion()}{setConclusion()}}
+{\footnotesize\ttfamily void Comment\+::set\+Conclusion (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Set conclusion based on comment scores. 
+
+Sets the conclusion for the comments section.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none;} & takes comments section information\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void; comment section object score is set 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{comment_8h}{comment.\+h}}\item 
+\mbox{\hyperlink{comment_8cpp}{comment.\+cpp}}\end{DoxyCompactItemize}

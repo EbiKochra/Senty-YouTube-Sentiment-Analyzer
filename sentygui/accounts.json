@@ -1,0 +1,49 @@
+[
+    {
+        "history": [
+            "https://www.youtube.com/watch?v=PkPfdR80u_8&ab_channel=VickyZhao%5BBEEAMP%5D"
+        ],
+        "password": "$2a$12$s1xpuHdiDMFvvDYk0mCH8eN0aeVd7jWxhFQ2htn7G4y6iF2QWrow6",
+        "securityAnswer": "2",
+        "securityQuestion": "1",
+        "username": "123"
+    },
+    {
+        "password": "$2a$12$TDVglIN8CEPigonYJ4pdl.wiGnie5q9YeIS3dk6RXxYIUY21Ndt1i",
+        "securityAnswer": "abc123",
+        "securityQuestion": "abc123",
+        "username": "newuser1"
+    },
+    {
+        "history": [
+            "https://www.youtube.com/watch?v=ZrkxvEJhxwQ&ab_channel=TomBilyeu",
+            "https://www.youtube.com/watch?v=xukeXnmN0Pc&ab_channel=NationalGeographic",
+            "https://www.youtube.com/watch?v=xukeXnmN0Pc&ab_channel=NationalGeographic",
+            "https://www.youtube.com/watch?v=xukeXnmN0Pc&ab_channel=NationalGeographic",
+            "https://www.youtube.com/watch?v=xukeXnmN0Pc&ab_channel=NationalGeographic",
+            "https://www.youtube.com/watch?v=xukeXnmN0Pc&ab_channel=NationalGeographic",
+            "https://www.youtube.com/watch?v=FRCrl5dXr54"
+        ],
+        "password": "$2a$12$.hzKQX5f9df/lQ7UlSySH.6AXnSjfdW3k7IjSFW1mZetM3HehDYhq",
+        "securityAnswer": "a",
+        "securityQuestion": "a",
+        "username": "a"
+    },
+    {
+        "history": [],
+        "password": "$2a$12$tLcFa71z7v2HduSPH16Ku.bB.zOrzc1SXSjqsQ0579YmsWUqr.X.u",
+        "securityAnswer": "aaa",
+        "securityQuestion": "aaa",
+        "username": "aaa"
+    },
+    {
+        "history": [
+            "https://www.youtube.com/watch?v=xukeXnmN0Pc&ab_channel=NationalGeographic",
+            "https://www.youtube.com/watch?v=xukeXnmN0Pc&ab_channel=NationalGeographic"
+        ],
+        "password": "$2a$12$2/FVqRIi9JLU4Ne62wg8K.v6f9zLyW3OmN/iXl1RmF6vw2paj3lDW",
+        "securityAnswer": "7",
+        "securityQuestion": "7",
+        "username": "7"
+    }
+]

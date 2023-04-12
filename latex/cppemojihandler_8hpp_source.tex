@@ -1,0 +1,48 @@
+\hypertarget{cppemojihandler_8hpp_source}{}\doxysection{cppemojihandler.\+hpp}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ Desc:\ handling\ emojis\ since\ C++\ can't\ work\ with\ emojis\ and\ read\ them\ in\ as\ one\ character}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ Group:\ 26}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ \#pragma\ execution\_character\_set("{}utf-\/8"{})}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <unordered\_set>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{typedef}\ std::string\ String;}
+\DoxyCodeLine{00016\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ Char;}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{static}\ std::vector<std::unordered\_set<Char>>\ create\_emoji\_bank(std::unordered\_map<String,\ String>\ emojis)}
+\DoxyCodeLine{00019\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ std::vector<std::unordered\_set<Char>>\ res;}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordflow}{for}\ (std::unordered\_map<String,\ String>::iterator\ iter\ =\ emojis.begin();\ iter\ !=\ emojis.end();\ ++iter)}
+\DoxyCodeLine{00022\ \ \ \ \ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ String\ k\ =\ iter-\/>first;}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (Char\ c\ :\ k)}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ res.size())}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ res.push\_back(std::unordered\_set<Char>());}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ res[i].insert(c);}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ res[i].insert(c);}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ i++;}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00036\ \ \ \ \ \}}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00038\ \}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ String\ emoji\_chars\_from\_start(String\ s,\ std::vector<std::unordered\_set<Char>>\ bank)}
+\DoxyCodeLine{00041\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ String\ res\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ s.length()\ \&\&\ bank[i].count(s[i]);\ i++)}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ res\ +=\ s[i];}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00046\ \}}
+
+\end{DoxyCode}

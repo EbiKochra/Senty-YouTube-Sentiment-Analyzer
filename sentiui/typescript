@@ -1,0 +1,137 @@
+Script started on Tue Mar 14 18:41:21 2023
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+[?1034hbash-3.2$ ./main
+Enter YouTube Link: https://www.youtube.com/watch?v=kU4KBD4NFtw&ab_channel=TECHDOSE
+FETCH COMMENTS API: https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&maxResults=100&videoId=kU4KBD4NFtw&key=AIzaSyAJfrZ_lK-cymNCsndagxrsVZJXjWqSJM8&order=time
+https://www.googleapis.com/youtube/v3/videos?id=kU4KBD4NFtw&part=snippet,contentDetails,status,statistics,topicDetails&key=AIzaSyAJfrZ_lK-cymNCsndagxrsVZJXjWqSJM8
+----------------------------------------------------
+All Comments:
+Thank u so much
+0.361158
+Love this tutorial!! Thank you so much for the efforts
+0.806547
+I think the time complexity for extract max for all elements is O(n) as summation of O(n/2^(h+1))*log(h) from h=0 to log(h) is O(n) where O(n/2^(h+1)) is the number of nodes in a particular level in complete binary tree.
+0.0772283
+Good work, bro!
+0.492555
+To the point explation,great work 👍
+0
+plz provide code for extract heap,increase key,decrease key,insert element as soon as possible
+0.0772283
+shouldn't we call heapyfy on i-1? in heapify(heap,o,i-1)
+0
+We can do heapify iteratively in O(logn) time and O(1) space 
+
+why don't you use interative method , Is it wrong or there are some cases where itertaive does not works or any other reason , Please let me know ?  , I searched on google but didn't found much ...
+-0.102733
+Yaar bas naukri lgte hi aapka linkedin pe post daalunga <3
+0.440434
+at line 30 => heapify(heap, i);  it should be heapify(heap, i, heap.size());
+0
+Awesome Content. Thank you
+0.764969
+I think while disliking the video youtube should give option so that person who is disliking should write a reason or have to comment... don't know why there are dislikes on your videos
+-0.743038
+What an explanation 🔥🙏🙏
+0
+Tech Dose has one of the best content (related to data structures and algorithms) on youtube.
+0.63695
+Nice Explanation.
+But how our  space complexity is Log(N) ?
+Because we haven't used any extra space except the input array.
+0.226348
+noice
+0
+this was one of the top class explanation of heap_sort ,thanks for this
+0.571885
+In Heapsort fun. When you calling the heapify function ... You are passing the Arr and current index not the size ?
+0.510607
+In conversion of  max heap to min heap , do we need to build the heap ? Since it is already a max heap. Can you please clarify. Thanks
+0.63695
+Sir videos are really very very v.. good.. But sir i have a one suggestion like you do in previous videos only the screen and ur impactful voice is there.. sometime a little distraction or ur face cover somethings. so it would be more better if u do like u do earlier..
+thankyou very much for valuable video
+0.939221
+Thank you Sir!
+0.419921
+Best 👍👍
+0.63695
+Thank you sir ji:)
+0.361158
+----------------------------------------------------
+Video Info:
+Vid ID: kU4KBD4NFtw
+Published Date: 2021-01-24T05:30:26Z
+channelId: UCnxhETjJtTPs37hOZ7vQ88g
+title: Heapsort Algorithm | CODE Implementation
+description: This video explains a very important heap concept which is the heapsort algorithm using a dry run example. I have explained all the required concepts for doing heapsort given an array.First, we need to build a heap from the given array.We can build either a maxheap or a minheap.Once our heap is formed, we need to do EXTRACT MAX for N-1 elements if we have total N elements in our array.Extract Max internally makes use of HEAPIFY algorithm.If we are using a maxheap then we do MAX-HEAPIFY otherwise we use MIN-HEAPIFY.All the concepts are explained using a dry run example.The code implementation is also shown at the end of the video.
+
+🧡 HELP us by donating on patreon: https://www.patreon.com/techdose 
+CODE LINK is present below as usual. If you find any difficulty or have any query then do COMMENT below. PLEASE help our channel by SUBSCRIBING and LIKE our video if you found it helpful...CYA :)
+
+========================================================================
+Join this channel to get access to perks:
+https://www.youtube.com/channel/UCnxhETjJtTPs37hOZ7vQ88g/join
+
+INSTAGRAM : https://www.instagram.com/surya.pratap.k/
+
+SUPPORT OUR WORK: https://www.patreon.com/techdose 
+
+LinkedIn: https://www.linkedin.com/in/surya-pratap-kahar-47bb01168 
+
+WEBSITE: https://techdose.co.in/
+
+TELEGRAM Channel LINK: https://t.me/codewithTECHDOSE
+
+TELEGRAM Group LINK: https://t.me/joinchat/SRVOIxWR4sRIVv5eEGI4aQ 
+=======================================================================
+USEFUL LINKS:
+🟠Must do TIPS to ACE Virtual Interview: https://youtu.be/4vLXoTFBB54
+🟢Best strategy to excel your coding interview: https://youtu.be/NCQQGoHnx9U
+🟡Get your dream job in 1 month: https://youtu.be/g_qAXBFglj0
+🔵How to crack dream job in just 2 months: https://youtu.be/gX8ZapEkpUY
+🟣7 Days DSA plan: https://techdose.co.in/7-days-dsa-cheat-sheet-quick-preparation-plan/
+
+
+RELATED LINKS:
+Power of Heap: https://youtu.be/RU08pp_VPSs
+Concepts of Heap: https://youtu.be/N0Frqx9UlrI
+Representation of Heap: https://youtu.be/qQkfUKer3LU
+Heapify Algorithm: https://youtu.be/cuL8gXCSA58
+Build heap algorithm: https://youtu.be/VkKmmwzfIG4
+Heap Algorithm: https://youtu.be/KkeIB6soiVI
+
+
+CODE LINK: https://techdose.co.in/heapsort-algorithm-code-implementation/
+
+
+
+#heap #heapplaylist #techdose
+channelTitle: TECH DOSE
+Tags: 
+programming interview questions coding interview questions programming tutorials computer science geeksforgeeks programming leetcode leetcode solution tech dose heapsort heapsort algorithm heap sort extract max extract min maxheap max heap minheap min heap heap heap implementation sort heap implement heapsort implement heap heapify max heapify min heapify heap data structure heap interview question heap playlist 
+duration: PT15M35S
+caption: false
+viewCount: 52194
+likeCount: 819
+favoriteCount: 0
+commentCount: 23
+privacyStatus: public
+----------------------------------------------------
+Sentiment Analysis:
+There are 13 positive comment(s), 8 neutral comment(s), and 2 negative comment(s).
+Sentiment: neutral ; Polarity: slightly positive
+Score breakdown: 
+	Overall: 0.309319, 
+	Negative: 0.0119439, 
+	Neutral: 0.740677, 
+	Positive: 0.247379
+Likes:Views = average engagement = 30-60th percentile. (1.56915%).
+Comments:Views = good engagement, 60-90th percentile. (0.0440664%).
+----------------------------------------------------
+bash-3.2$ exit
+exit
+
+Script done on Tue Mar 14 18:41:44 2023

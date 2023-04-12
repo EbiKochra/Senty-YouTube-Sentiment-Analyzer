@@ -1,0 +1,104 @@
+\hypertarget{class_analysis}{}\doxysection{Analysis Class Reference}
+\label{class_analysis}\index{Analysis@{Analysis}}
+
+
+\mbox{\hyperlink{class_analysis}{Analysis}} class with methods to compute sentiment of an individual comment, and to print out formatted score results.  
+
+
+
+
+{\ttfamily \#include $<$analysis.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_analysis_a1cf251eb8dc62b30815ab5548ad88f73}\label{class_analysis_a1cf251eb8dc62b30815ab5548ad88f73}} 
+{\bfseries Analysis} ()
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{class_analysis}{Analysis}} class. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_analysis_a172ae0a3cbb68daa373baf081f5c00d9}\label{class_analysis_a172ae0a3cbb68daa373baf081f5c00d9}} 
+{\bfseries $\sim$\+Analysis} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \mbox{\hyperlink{class_analysis}{Analysis}} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_analysis_aafdf263cb46e40c829cb3990f8468f69}{set\+Analysis}} (const std\+::string \&comments)
+\begin{DoxyCompactList}\small\item\em Sets the value of score with VADER scores. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_analysis_a9ac161da36f8eb2b404e0c5775900f3f}{print\+Total\+Analysis}} (const \mbox{\hyperlink{struct_score}{Score}} \&\mbox{\hyperlink{class_analysis_a14f76a66952d3c9c4fcf481cb9083072}{score}})
+\begin{DoxyCompactList}\small\item\em Prints out the values in the score structure. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_score}{Score}} \mbox{\hyperlink{class_analysis_a936ba06e266ab473a9e0ee669d5f14b0}{get\+Score}} () const
+\begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{struct_score}{Score}} structure object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_analysis_aa51f1aa01c544b90fc83d2656f558524}\label{class_analysis_aa51f1aa01c544b90fc83d2656f558524}} 
+\mbox{\hyperlink{classvader_1_1_sentiment_intensity_analyzer}{vader\+::\+Sentiment\+Intensity\+Analyzer}} {\bfseries vader}
+\begin{DoxyCompactList}\small\item\em Instance of Sentiment\+Intensity\+Analyzer class. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_analysis_a14f76a66952d3c9c4fcf481cb9083072}\label{class_analysis_a14f76a66952d3c9c4fcf481cb9083072}} 
+\mbox{\hyperlink{struct_score}{Score}} {\bfseries score}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{struct_score}{Score}} object to store sentiment scores. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_analysis}{Analysis}} class with methods to compute sentiment of an individual comment, and to print out formatted score results. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_analysis_a936ba06e266ab473a9e0ee669d5f14b0}\label{class_analysis_a936ba06e266ab473a9e0ee669d5f14b0}} 
+\index{Analysis@{Analysis}!getScore@{getScore}}
+\index{getScore@{getScore}!Analysis@{Analysis}}
+\doxysubsubsection{\texorpdfstring{getScore()}{getScore()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_score}{Score}} Analysis\+::get\+Score (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the \mbox{\hyperlink{struct_score}{Score}} structure object. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{struct_score}{Score}} object for the associated comment 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_analysis_a9ac161da36f8eb2b404e0c5775900f3f}\label{class_analysis_a9ac161da36f8eb2b404e0c5775900f3f}} 
+\index{Analysis@{Analysis}!printTotalAnalysis@{printTotalAnalysis}}
+\index{printTotalAnalysis@{printTotalAnalysis}!Analysis@{Analysis}}
+\doxysubsubsection{\texorpdfstring{printTotalAnalysis()}{printTotalAnalysis()}}
+{\footnotesize\ttfamily void Analysis\+::print\+Total\+Analysis (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_score}{Score}} \&}]{score }\end{DoxyParamCaption})}
+
+
+
+Prints out the values in the score structure. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em score} & A constant reference to the score structure associated with the comment \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Void, but prints out each of the elements of the score 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_analysis_aafdf263cb46e40c829cb3990f8468f69}\label{class_analysis_aafdf263cb46e40c829cb3990f8468f69}} 
+\index{Analysis@{Analysis}!setAnalysis@{setAnalysis}}
+\index{setAnalysis@{setAnalysis}!Analysis@{Analysis}}
+\doxysubsubsection{\texorpdfstring{setAnalysis()}{setAnalysis()}}
+{\footnotesize\ttfamily void Analysis\+::set\+Analysis (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{comment }\end{DoxyParamCaption})}
+
+
+
+Sets the value of score with VADER scores. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em comments} & Reference to the address of the comment \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Void, but sets a \mbox{\hyperlink{struct_score}{Score}} structure
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em comment} & Reference to the address of the comment \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Void, but sets a \mbox{\hyperlink{struct_score}{Score}} structure 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{analysis_8h}{analysis.\+h}}\item 
+\mbox{\hyperlink{analysis_8cpp}{analysis.\+cpp}}\end{DoxyCompactItemize}

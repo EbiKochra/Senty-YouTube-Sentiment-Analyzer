@@ -1,0 +1,314 @@
+\hypertarget{vader_sentiment_8hpp_source}{}\doxysection{vader\+Sentiment.\+hpp}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ VADER\ SENTIMENT}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ Translated\ into\ C++\ by\ Aathreya\ Kadambi}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ Edits\ made\ by\ Aathreya\ Kadambi}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//\ See\ README\ in\ the\ repository\ for\ more\ information}}
+\DoxyCodeLine{00011\ \textcolor{comment}{//\ Uses\ C++\ 17\ to\ avoid\ C++\ 20\ utf-\/8\ formatting\ issues?}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00014\ \textcolor{comment}{Original\ vaderSentiment.py\ Header:}}
+\DoxyCodeLine{00015\ \textcolor{comment}{}}
+\DoxyCodeLine{00016\ \textcolor{comment}{coding:\ utf-\/8}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\#\ Author:\ C.J.\ Hutto}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\#\ Thanks\ to\ George\ Berry\ for\ reducing\ the\ time\ complexity\ from\ something\ like\ O(N\string^4)\ to\ O(N).}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\#\ Thanks\ to\ Ewan\ Klein\ and\ Pierpaolo\ Pantone\ for\ bringing\ VADER\ into\ NLTK.\ Those\ modifications\ were\ awesome.}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\#\ For\ license\ information,\ see\ LICENSE.TXT}}
+\DoxyCodeLine{00021\ \textcolor{comment}{}}
+\DoxyCodeLine{00022\ \textcolor{comment}{"{}"{}"{}}}
+\DoxyCodeLine{00023\ \textcolor{comment}{If\ you\ use\ the\ VADER\ sentiment\ analysis\ tools,\ please\ cite:}}
+\DoxyCodeLine{00024\ \textcolor{comment}{Hutto,\ C.J.\ \&\ Gilbert,\ E.E.\ (2014).\ VADER:\ A\ Parsimonious\ Rule-\/based\ Model\ for}}
+\DoxyCodeLine{00025\ \textcolor{comment}{Sentiment\ Analysis\ of\ Social\ Media\ Text.\ Eighth\ International\ Conference\ on}}
+\DoxyCodeLine{00026\ \textcolor{comment}{Weblogs\ and\ Social\ Media\ (ICWSM-\/14).\ Ann\ Arbor,\ MI,\ June\ 2014.}}
+\DoxyCodeLine{00027\ \textcolor{comment}{"{}"{}"{}}}
+\DoxyCodeLine{00028\ \textcolor{comment}{*/}\ }
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ <unordered\_set>}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ <cctype>}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{comment}{//\ char8\_t\ backwards\ compatibility\ https://www.open-\/std.org/jtc1/sc22/wg21/docs/papers/2019/p1423r2.html}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#if\ defined(\_\_cpp\_lib\_char8\_t)}}
+\DoxyCodeLine{00044\ \textcolor{keyword}{typedef}\ std::string\ String;}
+\DoxyCodeLine{00045\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{char8\_t}\ Char;}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{inline}\ std::string\ from\_string(\textcolor{keyword}{const}\ String\ \&s)\ }
+\DoxyCodeLine{00048\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordflow}{return}\ std::string(s.begin(),\ s.end());}
+\DoxyCodeLine{00050\ \}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{keyword}{inline}\ std::vector<String>\ split(String\ s)}
+\DoxyCodeLine{00053\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ std::vector<String>\ res;}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{bool}\ n\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ i\ =\ -\/1;\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordflow}{for}\ (Char\ c\ :\ s)}
+\DoxyCodeLine{00058\ \ \ \ \ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (n)}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ String\ strversion\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ strversion.push\_back(c);}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ res.push\_back(strversion);}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ i++;}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ n\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (c\ ==\ \textcolor{charliteral}{'\ '}\ ||\ c\ ==\ \textcolor{charliteral}{'\(\backslash\)t'}\ ||\ c\ ==\ \textcolor{charliteral}{'\(\backslash\)n'}\ ||\ c\ ==\ \textcolor{charliteral}{'\(\backslash\)r'}\ ||\ c\ ==\ \textcolor{charliteral}{'\(\backslash\)f'}\ ||\ c\ ==\ \textcolor{charliteral}{'\(\backslash\)v'})}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ n\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ res[i].push\_back(c);\ \textcolor{comment}{//\ possibly\ better\ to\ get\ rid\ of\ i\ and\ just\ do\ res.size()\ -\/\ 1}}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00074\ \ \ \ \ \}}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00076\ \}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \textcolor{keyword}{inline}\ std::vector<String>\ split(String\ s,\ Char\ splitter)}
+\DoxyCodeLine{00079\ \{}
+\DoxyCodeLine{00080\ \ \ \ \ std::vector<String>\ res;}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{bool}\ n\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ i\ =\ -\/1;}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordflow}{for}\ (Char\ c\ :\ s)}
+\DoxyCodeLine{00084\ \ \ \ \ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (n)}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ String\ strversion\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ strversion.push\_back(c);}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ res.push\_back(strversion);}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ i++;}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ n\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (c\ ==\ splitter)}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ n\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ res[i].push\_back(c);\ \textcolor{comment}{//\ possibly\ better\ to\ get\ rid\ of\ i\ and\ just\ do\ res.size()\ -\/\ 1}}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00100\ \ \ \ \ \}}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00102\ \}}
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00104\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ Char;}
+\DoxyCodeLine{00105\ \textcolor{keyword}{typedef}\ std::string\ String;}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \textcolor{keyword}{inline}\ std::string\ from\_string(\textcolor{keyword}{const}\ String\ \&s)\ }
+\DoxyCodeLine{00108\ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordflow}{return}\ s;}
+\DoxyCodeLine{00110\ \}}
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \textcolor{keyword}{inline}\ std::vector<std::string>\ split(std::string\ s)}
+\DoxyCodeLine{00115\ \{}
+\DoxyCodeLine{00116\ \ \ \ \ std::vector<std::string>\ res;}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{bool}\ n\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ i\ =\ -\/1;\ }
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordflow}{for}\ (Char\ c\ :\ s)}
+\DoxyCodeLine{00120\ \ \ \ \ \{}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (n)}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ strversion\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ strversion.push\_back(c);}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ res.push\_back(strversion);}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ i++;}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ n\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (c\ ==\ \textcolor{charliteral}{'\ '}\ ||\ c\ ==\ \textcolor{charliteral}{'\(\backslash\)t'}\ ||\ c\ ==\ \textcolor{charliteral}{'\(\backslash\)n'}\ ||\ c\ ==\ \textcolor{charliteral}{'\(\backslash\)r'}\ ||\ c\ ==\ \textcolor{charliteral}{'\(\backslash\)f'}\ ||\ c\ ==\ \textcolor{charliteral}{'\(\backslash\)v'})}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ n\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ res[i].push\_back(c);\ \textcolor{comment}{//\ possibly\ better\ to\ get\ rid\ of\ i\ and\ just\ do\ res.size()\ -\/\ 1}}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00136\ \ \ \ \ \}}
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00138\ \}}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \textcolor{keyword}{inline}\ std::vector<std::string>\ split(std::string\ s,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ splitter)}
+\DoxyCodeLine{00141\ \{}
+\DoxyCodeLine{00142\ \ \ \ \ std::vector<std::string>\ res;}
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordtype}{bool}\ n\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ i\ =\ -\/1;}
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keywordflow}{for}\ (Char\ c\ :\ s)}
+\DoxyCodeLine{00146\ \ \ \ \ \{}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (n)}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ strversion\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ strversion.push\_back(c);}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ res.push\_back(strversion);}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ i++;}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ n\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (c\ ==\ splitter)}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ n\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ res[i].push\_back(c);\ \textcolor{comment}{//\ possibly\ better\ to\ get\ rid\ of\ i\ and\ just\ do\ res.size()\ -\/\ 1}}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00162\ \ \ \ \ \}}
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00164\ \}}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ isupper(String\ word)}
+\DoxyCodeLine{00168\ \{}
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keywordflow}{return}\ std::all\_of(word.begin(),\ word.end(),\ [](\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ c)\ \{\ return\ (!::isalpha(c))\ ||\ ::isupper(c);\ \})\ \&\&\ std::any\_of(word.begin(),\ word.end(),\ [](\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ c)\ \{\ return\ ::isalpha(c);\ \});}
+\DoxyCodeLine{00170\ \}}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacevader}{vader}}}
+\DoxyCodeLine{00173\ \{}
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{comment}{//\ Precomiled\ Constants}}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \ \ \ \ \textcolor{comment}{//\ (empirically\ derived\ mean\ sentiment\ intensity\ rating\ increase\ for\ booster\ words)}}
+\DoxyCodeLine{00177\ \textcolor{preprocessor}{\ \ \ \ \#define\ B\_INCR\ 0.293}}
+\DoxyCodeLine{00178\ \textcolor{preprocessor}{\ \ \ \ \#define\ B\_DECR\ -\/0.293}}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{comment}{//\ (empirically\ derived\ mean\ sentiment\ intensity\ rating\ increase\ for\ using\ ALLCAPs\ to\ emphasize\ a\ word)}}
+\DoxyCodeLine{00181\ \textcolor{preprocessor}{\ \ \ \ \#define\ C\_INCR\ 0.733}}
+\DoxyCodeLine{00182\ \textcolor{preprocessor}{\ \ \ \ \#define\ N\_SCALAR\ -\/0.74}}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{comment}{//\ Below\ we\ use\ unordered\ sets/maps\ to\ improve\ speed;\ vaderSentiment.py\ uses\ the\ list\ structure\ which\ has\ average\ O(n)\ lookups\ when\ in\ is\ used}}
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{comment}{//\ but\ here\ we\ can\ use\ std::unordered\_set\ to\ get\ a\ time\ complexity\ of\ O(1)}}
+\DoxyCodeLine{00186\ \ \ \ \ \textcolor{keyword}{static}\ std::unordered\_set<String>\ NEGATE\ \{\textcolor{stringliteral}{"{}aint"{}},\ \textcolor{stringliteral}{"{}arent"{}},\ \textcolor{stringliteral}{"{}cannot"{}},\ \textcolor{stringliteral}{"{}cant"{}},\ \textcolor{stringliteral}{"{}couldnt"{}},\ \textcolor{stringliteral}{"{}darent"{}},\ \textcolor{stringliteral}{"{}didnt"{}},\ \textcolor{stringliteral}{"{}doesnt"{}},}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}ain't"{}},\ \textcolor{stringliteral}{"{}aren't"{}},\ \textcolor{stringliteral}{"{}can't"{}},\ \textcolor{stringliteral}{"{}couldn't"{}},\ \textcolor{stringliteral}{"{}daren't"{}},\ \textcolor{stringliteral}{"{}didn't"{}},\ \textcolor{stringliteral}{"{}doesn't"{}},}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}dont"{}},\ \textcolor{stringliteral}{"{}hadnt"{}},\ \textcolor{stringliteral}{"{}hasnt"{}},\ \textcolor{stringliteral}{"{}havent"{}},\ \textcolor{stringliteral}{"{}isnt"{}},\ \textcolor{stringliteral}{"{}mightnt"{}},\ \textcolor{stringliteral}{"{}mustnt"{}},\ \textcolor{stringliteral}{"{}neither"{}},}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}don't"{}},\ \textcolor{stringliteral}{"{}hadn't"{}},\ \textcolor{stringliteral}{"{}hasn't"{}},\ \textcolor{stringliteral}{"{}haven't"{}},\ \textcolor{stringliteral}{"{}isn't"{}},\ \textcolor{stringliteral}{"{}mightn't"{}},\ \textcolor{stringliteral}{"{}mustn't"{}},}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}neednt"{}},\ \textcolor{stringliteral}{"{}needn't"{}},\ \textcolor{stringliteral}{"{}never"{}},\ \textcolor{stringliteral}{"{}none"{}},\ \textcolor{stringliteral}{"{}nope"{}},\ \textcolor{stringliteral}{"{}nor"{}},\ \textcolor{stringliteral}{"{}not"{}},\ \textcolor{stringliteral}{"{}nothing"{}},\ \textcolor{stringliteral}{"{}nowhere"{}},}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}oughtnt"{}},\ \textcolor{stringliteral}{"{}shant"{}},\ \textcolor{stringliteral}{"{}shouldnt"{}},\ \textcolor{stringliteral}{"{}uhuh"{}},\ \textcolor{stringliteral}{"{}wasnt"{}},\ \textcolor{stringliteral}{"{}werent"{}},}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}oughtn't"{}},\ \textcolor{stringliteral}{"{}shan't"{}},\ \textcolor{stringliteral}{"{}shouldn't"{}},\ \textcolor{stringliteral}{"{}uh-\/uh"{}},\ \textcolor{stringliteral}{"{}wasn't"{}},\ \textcolor{stringliteral}{"{}weren't"{}},}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}without"{}},\ \textcolor{stringliteral}{"{}wont"{}},\ \textcolor{stringliteral}{"{}wouldnt"{}},\ \textcolor{stringliteral}{"{}won't"{}},\ \textcolor{stringliteral}{"{}wouldn't"{}},\ \textcolor{stringliteral}{"{}rarely"{}},\ \textcolor{stringliteral}{"{}seldom"{}},\ \textcolor{stringliteral}{"{}despite"{}}\};}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{comment}{//\ booster/dampener\ 'intensifiers'\ or\ 'degree\ adverbs'}}
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{comment}{//\ http://en.wiktionary.org/wiki/Category:English\_degree\_adverbs}}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00198\ \ \ \ \ \textcolor{keyword}{static}\ std::unordered\_map<String,\ double>\ BOOSTER\_DICT\ \{\{\textcolor{stringliteral}{"{}absolutely"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}amazingly"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}awfully"{}},\ B\_INCR\},}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}completely"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}considerable"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}considerably"{}},\ B\_INCR\},}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}decidedly"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}deeply"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}effing"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}enormous"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}enormously"{}},\ B\_INCR\},}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}entirely"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}especially"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}exceptional"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}exceptionally"{}},\ B\_INCR\},}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}extreme"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}extremely"{}},\ B\_INCR\},}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}fabulously"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}flipping"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}flippin"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}frackin"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}fracking"{}},\ B\_INCR\},}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}fricking"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}frickin"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}frigging"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}friggin"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}fully"{}},\ B\_INCR\},}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}fuckin"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}fucking"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}fuggin"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}fugging"{}},\ B\_INCR\},}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}greatly"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}hella"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}highly"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}hugely"{}},\ B\_INCR\},}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}incredible"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}incredibly"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}intensely"{}},\ B\_INCR\},}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}major"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}majorly"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}more"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}most"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}particularly"{}},\ B\_INCR\},}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}purely"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}quite"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}really"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}remarkably"{}},\ B\_INCR\},}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}so"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}substantially"{}},\ B\_INCR\},}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}thoroughly"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}total"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}totally"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}tremendous"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}tremendously"{}},\ B\_INCR\},}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}uber"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}unbelievably"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}unusually"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}utter"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}utterly"{}},\ B\_INCR\},}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}very"{}},\ B\_INCR\},}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}almost"{}},\ B\_DECR\},\ \{\textcolor{stringliteral}{"{}barely"{}},\ B\_DECR\},\ \{\textcolor{stringliteral}{"{}hardly"{}},\ B\_DECR\},\ \{\textcolor{stringliteral}{"{}just\ enough"{}},\ B\_DECR\},}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}kind\ of"{}},\ B\_DECR\},\ \{\textcolor{stringliteral}{"{}kinda"{}},\ B\_DECR\},\ \{\textcolor{stringliteral}{"{}kindof"{}},\ B\_DECR\},\ \{\textcolor{stringliteral}{"{}kind-\/of"{}},\ B\_DECR\},}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}less"{}},\ B\_DECR\},\ \{\textcolor{stringliteral}{"{}little"{}},\ B\_DECR\},\ \{\textcolor{stringliteral}{"{}marginal"{}},\ B\_DECR\},\ \{\textcolor{stringliteral}{"{}marginally"{}},\ B\_DECR\},}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}occasional"{}},\ B\_DECR\},\ \{\textcolor{stringliteral}{"{}occasionally"{}},\ B\_DECR\},\ \{\textcolor{stringliteral}{"{}partly"{}},\ B\_DECR\},}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}scarce"{}},\ B\_DECR\},\ \{\textcolor{stringliteral}{"{}scarcely"{}},\ B\_DECR\},\ \{\textcolor{stringliteral}{"{}slight"{}},\ B\_DECR\},\ \{\textcolor{stringliteral}{"{}slightly"{}},\ B\_DECR\},\ \{\textcolor{stringliteral}{"{}somewhat"{}},\ B\_DECR\},}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}sort\ of"{}},\ B\_DECR\},\ \{\textcolor{stringliteral}{"{}sorta"{}},\ B\_DECR\},\ \{\textcolor{stringliteral}{"{}sortof"{}},\ B\_DECR\},\ \{\textcolor{stringliteral}{"{}sort-\/of"{}},\ B\_DECR\}\};}
+\DoxyCodeLine{00220\ \ \ \ \ }
+\DoxyCodeLine{00221\ \ \ \ \ \textcolor{comment}{//\ check\ for\ sentiment\ laden\ idioms\ that\ do\ not\ contain\ lexicon\ words\ (future\ work,\ not\ yet\ implemented)}}
+\DoxyCodeLine{00222\ \ \ \ \ \textcolor{keyword}{static}\ std::unordered\_map<String,\ double>\ SENTIMENT\_LADEN\_IDIOMS\{\ \{\textcolor{stringliteral}{"{}cut\ the\ mustard"{}},\ 2\},\ \{\textcolor{stringliteral}{"{}hand\ to\ mouth"{}},\ -\/2\},}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}back\ handed"{}},\ -\/2\},\ \{\textcolor{stringliteral}{"{}blow\ smoke"{}},\ -\/2\},\ \{\textcolor{stringliteral}{"{}blowing\ smoke"{}},\ -\/2\},}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}upper\ hand"{}},\ 1\},\ \{\textcolor{stringliteral}{"{}break\ a\ leg"{}},\ 2\},}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}cooking\ with\ gas"{}},\ 2\},\ \{\textcolor{stringliteral}{"{}in\ the\ black"{}},\ 2\},\ \{\textcolor{stringliteral}{"{}in\ the\ red"{}}\ ,\ -\/2\},}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}on\ the\ ball"{}},\ 2\},\ \{\textcolor{stringliteral}{"{}under\ the\ weather"{}},\ -\/2\}\ \};}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00228\ \ \ \ \ \textcolor{comment}{//\ check\ for\ special\ case\ idioms\ and\ phrases\ containing\ lexicon\ words}}
+\DoxyCodeLine{00229\ \ \ \ \ \textcolor{keyword}{static}\ std::unordered\_map<String,\ double>\ SPECIAL\_CASES\ \{\{\textcolor{stringliteral}{"{}the\ shit"{}},\ 3\},\ \{\textcolor{stringliteral}{"{}the\ bomb"{}},\ 3\},\ \{\textcolor{stringliteral}{"{}bad\ ass"{}},\ 1.5\},\ \{\textcolor{stringliteral}{"{}badass"{}},\ 1.5\},\ \{\textcolor{stringliteral}{"{}bus\ stop"{}},\ 0.0\},}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}yeah\ right"{}},\ -\/2\},\ \{\textcolor{stringliteral}{"{}kiss\ of\ death"{}},\ -\/1.5\},\ \{\textcolor{stringliteral}{"{}to\ die\ for"{}},\ 3\},}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}beating\ heart"{}},\ 3.1\},\ \{\textcolor{stringliteral}{"{}broken\ heart"{}},\ -\/2.9\}\};}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00233\ \ \ \ \ }
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00235\ \ \ \ \ \textcolor{comment}{//\ Static\ Methods}}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00237\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ negated(std::vector<String>\ input\_words,\ \textcolor{keywordtype}{bool}\ include\_nt=\textcolor{keyword}{true})}
+\DoxyCodeLine{00238\ \ \ \ \ \{}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Determine\ if\ input\ contains\ negation\ words}}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (String\ \&word\ :\ input\_words)}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \ \ \ \ std::transform(word.begin(),\ word.end(),\ word.begin(),\ ::tolower);\textcolor{comment}{//[](unsigned\ char\ c)\{\ return\ std::tolower(c);\ \});}}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (String\ word\ :\ input\_words)}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (NEGATE.count(word))}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (include\_nt)}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (String\ word\ :\ input\_words)}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (word.find(\textcolor{stringliteral}{"{}n't"{}})\ !=\ -\/1)}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Semi-\/Untranslated\ portion\ that\ was\ commented:\ [Possible\ TODO]}}
+\DoxyCodeLine{00250\ \textcolor{comment}{\ \ \ \ \ \ \ \ '''if\ "{}least"{}\ in\ input\_words:}}
+\DoxyCodeLine{00251\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ i\ =\ input\_words.index("{}least"{})}}
+\DoxyCodeLine{00252\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ if\ i\ >\ 0\ and\ input\_words[i\ -\/\ 1]\ !=\ "{}at"{}:}}
+\DoxyCodeLine{00253\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ return\ True'''}}
+\DoxyCodeLine{00254\ \textcolor{comment}{\ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00256\ \ \ \ \ \}}
+\DoxyCodeLine{00257\ }
+\DoxyCodeLine{00258\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ normalize(\textcolor{keywordtype}{double}\ score,\ \textcolor{keywordtype}{double}\ alpha=15)}
+\DoxyCodeLine{00259\ \ \ \ \ \{}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Normalize\ the\ score\ to\ be\ between\ -\/1\ and\ 1\ using\ an\ alpha\ that\ approximates\ the\ max\ expected\ value}}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ norm\_score\ =\ score\ /\ sqrt((score\ *\ score)\ +\ alpha);\ \textcolor{comment}{//\ TODO:\ Look\ into\ fastest\ implementations\ of\ ISR}}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (norm\_score\ <\ -\/1.0)}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (norm\_score\ >\ 1.0)}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ norm\_score;}
+\DoxyCodeLine{00267\ \ \ \ \ \}}
+\DoxyCodeLine{00268\ }
+\DoxyCodeLine{00269\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ allcap\_differential(std::vector<String>\ words)}
+\DoxyCodeLine{00270\ \ \ \ \ \{}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00272\ \textcolor{comment}{\ \ \ \ \ \ \ \ Check\ whether\ just\ some\ words\ in\ the\ input\ are\ ALL\ CAPS}}
+\DoxyCodeLine{00273\ \textcolor{comment}{\ \ \ \ \ \ \ \ :param\ vector\ words:\ The\ words\ to\ inspect}}
+\DoxyCodeLine{00274\ \textcolor{comment}{\ \ \ \ \ \ \ \ :returns:\ `true`\ if\ some\ but\ not\ all\ items\ in\ `words`\ are\ ALL\ CAPS}}
+\DoxyCodeLine{00275\ \textcolor{comment}{\ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ allcap\_words\ =\ 0;}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (String\ word\ :\ words)}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (isupper(word))}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ allcap\_words++;}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cap\_differential\ =\ words.size()\ -\/\ allcap\_words;\ \textcolor{comment}{//\ this\ is\ actually\ possibly\ buggy,\ behavior\ on\ emojis/emoticons\ are\ unknown\ TODO:\ investigate}}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0\ <\ cap\_differential\ \&\&\ cap\_differential\ <\ words.size();\ \textcolor{comment}{//\ more\ space\ efficient\ than\ storing\ in\ a\ variable}}
+\DoxyCodeLine{00282\ \ \ \ \ \}}
+\DoxyCodeLine{00283\ }
+\DoxyCodeLine{00284\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ scalar\_inc\_dec(String\ word,\ \textcolor{keywordtype}{double}\ valence,\ \textcolor{keywordtype}{bool}\ is\_cap\_diff)}
+\DoxyCodeLine{00285\ \ \ \ \ \{}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Check\ if\ the\ preceding\ words\ increase,\ decrease,\ or\ negate/nullify\ the\ valence}}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ scalar\ =\ 0.0;}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ String\ oword\ =\ word;}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ std::transform(word.begin(),\ word.end(),\ word.begin(),\ ::tolower);}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (BOOSTER\_DICT.count(word))}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \ \ \ \ scalar\ =\ BOOSTER\_DICT[word];}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (valence\ <\ 0)}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ scalar\ *=\ -\/1;}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ check\ if\ booster/dampener\ word\ is\ ALLCAPS\ (while\ others\ aren't)}}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (is\_cap\_diff\ \&\&\ isupper(oword))}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (valence\ >\ 0)\ \textcolor{comment}{//\ should\ be\ scalar\ >\ 0?}}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ scalar\ +=\ C\_INCR;}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ scalar\ -\/=\ C\_INCR;}
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ scalar;}
+\DoxyCodeLine{00305\ \ \ \ \ \}}
+\DoxyCodeLine{00306\ }
+\DoxyCodeLine{00307\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvader_1_1_sentiment}{Sentiment}}}
+\DoxyCodeLine{00308\ \ \ \ \ \{}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ neg\ =\ 0.0;}
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ neu\ =\ 0.0;}
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ pos\ =\ 0.0;}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ compound\ =\ 0.0;}
+\DoxyCodeLine{00313\ \ \ \ \ \};}
+\DoxyCodeLine{00314\ \}}
+
+\end{DoxyCode}

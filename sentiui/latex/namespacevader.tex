@@ -1,0 +1,133 @@
+\hypertarget{namespacevader}{}\doxysection{vader Namespace Reference}
+\label{namespacevader}\index{vader@{vader}}
+
+
+\mbox{\hyperlink{classvader_1_1_senti_text}{Senti\+Text}} class, formats strings as needed before performing analysis.  
+
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structvader_1_1_sentiment}{Sentiment}}
+\item 
+class \mbox{\hyperlink{classvader_1_1_sentiment_intensity_analyzer}{Sentiment\+Intensity\+Analyzer}}
+\begin{DoxyCompactList}\small\item\em Provide sentiment intensity scores for sentences. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classvader_1_1_senti_text}{Senti\+Text}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacevader_afcea01e6a8e568770f8957041d27ed26}\label{namespacevader_afcea01e6a8e568770f8957041d27ed26}} 
+static bool {\bfseries negated} (std\+::vector$<$ String $>$ input\+\_\+words, bool include\+\_\+nt=true)
+\item 
+\mbox{\Hypertarget{namespacevader_a01ca9ec09ff16747155df8cd6ca194cd}\label{namespacevader_a01ca9ec09ff16747155df8cd6ca194cd}} 
+static double {\bfseries normalize} (double score, double alpha=15)
+\item 
+\mbox{\Hypertarget{namespacevader_adc245171590f4c03e0d5cebf21849d48}\label{namespacevader_adc245171590f4c03e0d5cebf21849d48}} 
+static bool {\bfseries allcap\+\_\+differential} (std\+::vector$<$ String $>$ words)
+\item 
+\mbox{\Hypertarget{namespacevader_a0360312a4d451b7e654c2f21e14a6634}\label{namespacevader_a0360312a4d451b7e654c2f21e14a6634}} 
+static double {\bfseries scalar\+\_\+inc\+\_\+dec} (String word, double valence, bool is\+\_\+cap\+\_\+diff)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::unordered\+\_\+set$<$ String $>$ \mbox{\hyperlink{namespacevader_ad7ffebae65f864921145316ced4a030f}{NEGATE}}
+\item 
+static std\+::unordered\+\_\+map$<$ String, double $>$ \mbox{\hyperlink{namespacevader_a36a27c815344ea9da1f53bf15a1d0e47}{BOOSTER\+\_\+\+DICT}}
+\item 
+static std\+::unordered\+\_\+map$<$ String, double $>$ \mbox{\hyperlink{namespacevader_af934479c72adafe02dad6afb4d6f67a4}{SENTIMENT\+\_\+\+LADEN\+\_\+\+IDIOMS}}
+\item 
+static std\+::unordered\+\_\+map$<$ String, double $>$ \mbox{\hyperlink{namespacevader_af55e1e19f2fa33aeeba609c58357560f}{SPECIAL\+\_\+\+CASES}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classvader_1_1_senti_text}{Senti\+Text}} class, formats strings as needed before performing analysis. 
+
+\mbox{\hyperlink{classvader_1_1_senti_text}{Senti\+Text}} class header.
+
+\begin{DoxyAuthor}{Authors}
+Adrian, Emily, Karanvir, Muhammad, Salar 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacevader_a36a27c815344ea9da1f53bf15a1d0e47}\label{namespacevader_a36a27c815344ea9da1f53bf15a1d0e47}} 
+\index{vader@{vader}!BOOSTER\_DICT@{BOOSTER\_DICT}}
+\index{BOOSTER\_DICT@{BOOSTER\_DICT}!vader@{vader}}
+\doxysubsubsection{\texorpdfstring{BOOSTER\_DICT}{BOOSTER\_DICT}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$String, double$>$ vader\+::\+BOOSTER\+\_\+\+DICT\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{\{\textcolor{stringliteral}{"{}absolutely"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}amazingly"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}awfully"{}},\ B\_INCR\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}completely"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}considerable"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}considerably"{}},\ B\_INCR\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}decidedly"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}deeply"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}effing"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}enormous"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}enormously"{}},\ B\_INCR\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}entirely"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}especially"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}exceptional"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}exceptionally"{}},\ B\_INCR\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}extreme"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}extremely"{}},\ B\_INCR\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}fabulously"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}flipping"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}flippin"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}frackin"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}fracking"{}},\ B\_INCR\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}fricking"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}frickin"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}frigging"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}friggin"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}fully"{}},\ B\_INCR\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}fuckin"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}fucking"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}fuggin"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}fugging"{}},\ B\_INCR\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}greatly"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}hella"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}highly"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}hugely"{}},\ B\_INCR\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}incredible"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}incredibly"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}intensely"{}},\ B\_INCR\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}major"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}majorly"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}more"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}most"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}particularly"{}},\ B\_INCR\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}purely"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}quite"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}really"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}remarkably"{}},\ B\_INCR\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}so"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}substantially"{}},\ B\_INCR\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}thoroughly"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}total"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}totally"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}tremendous"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}tremendously"{}},\ B\_INCR\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}uber"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}unbelievably"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}unusually"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}utter"{}},\ B\_INCR\},\ \{\textcolor{stringliteral}{"{}utterly"{}},\ B\_INCR\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}very"{}},\ B\_INCR\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}almost"{}},\ B\_DECR\},\ \{\textcolor{stringliteral}{"{}barely"{}},\ B\_DECR\},\ \{\textcolor{stringliteral}{"{}hardly"{}},\ B\_DECR\},\ \{\textcolor{stringliteral}{"{}just\ enough"{}},\ B\_DECR\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}kind\ of"{}},\ B\_DECR\},\ \{\textcolor{stringliteral}{"{}kinda"{}},\ B\_DECR\},\ \{\textcolor{stringliteral}{"{}kindof"{}},\ B\_DECR\},\ \{\textcolor{stringliteral}{"{}kind-\/of"{}},\ B\_DECR\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}less"{}},\ B\_DECR\},\ \{\textcolor{stringliteral}{"{}little"{}},\ B\_DECR\},\ \{\textcolor{stringliteral}{"{}marginal"{}},\ B\_DECR\},\ \{\textcolor{stringliteral}{"{}marginally"{}},\ B\_DECR\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}occasional"{}},\ B\_DECR\},\ \{\textcolor{stringliteral}{"{}occasionally"{}},\ B\_DECR\},\ \{\textcolor{stringliteral}{"{}partly"{}},\ B\_DECR\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}scarce"{}},\ B\_DECR\},\ \{\textcolor{stringliteral}{"{}scarcely"{}},\ B\_DECR\},\ \{\textcolor{stringliteral}{"{}slight"{}},\ B\_DECR\},\ \{\textcolor{stringliteral}{"{}slightly"{}},\ B\_DECR\},\ \{\textcolor{stringliteral}{"{}somewhat"{}},\ B\_DECR\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}sort\ of"{}},\ B\_DECR\},\ \{\textcolor{stringliteral}{"{}sorta"{}},\ B\_DECR\},\ \{\textcolor{stringliteral}{"{}sortof"{}},\ B\_DECR\},\ \{\textcolor{stringliteral}{"{}sort-\/of"{}},\ B\_DECR\}\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacevader_ad7ffebae65f864921145316ced4a030f}\label{namespacevader_ad7ffebae65f864921145316ced4a030f}} 
+\index{vader@{vader}!NEGATE@{NEGATE}}
+\index{NEGATE@{NEGATE}!vader@{vader}}
+\doxysubsubsection{\texorpdfstring{NEGATE}{NEGATE}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+set$<$String$>$ vader\+::\+NEGATE\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{\textcolor{stringliteral}{"{}aint"{}},\ \textcolor{stringliteral}{"{}arent"{}},\ \textcolor{stringliteral}{"{}cannot"{}},\ \textcolor{stringliteral}{"{}cant"{}},\ \textcolor{stringliteral}{"{}couldnt"{}},\ \textcolor{stringliteral}{"{}darent"{}},\ \textcolor{stringliteral}{"{}didnt"{}},\ \textcolor{stringliteral}{"{}doesnt"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}ain't"{}},\ \textcolor{stringliteral}{"{}aren't"{}},\ \textcolor{stringliteral}{"{}can't"{}},\ \textcolor{stringliteral}{"{}couldn't"{}},\ \textcolor{stringliteral}{"{}daren't"{}},\ \textcolor{stringliteral}{"{}didn't"{}},\ \textcolor{stringliteral}{"{}doesn't"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}dont"{}},\ \textcolor{stringliteral}{"{}hadnt"{}},\ \textcolor{stringliteral}{"{}hasnt"{}},\ \textcolor{stringliteral}{"{}havent"{}},\ \textcolor{stringliteral}{"{}isnt"{}},\ \textcolor{stringliteral}{"{}mightnt"{}},\ \textcolor{stringliteral}{"{}mustnt"{}},\ \textcolor{stringliteral}{"{}neither"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}don't"{}},\ \textcolor{stringliteral}{"{}hadn't"{}},\ \textcolor{stringliteral}{"{}hasn't"{}},\ \textcolor{stringliteral}{"{}haven't"{}},\ \textcolor{stringliteral}{"{}isn't"{}},\ \textcolor{stringliteral}{"{}mightn't"{}},\ \textcolor{stringliteral}{"{}mustn't"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}neednt"{}},\ \textcolor{stringliteral}{"{}needn't"{}},\ \textcolor{stringliteral}{"{}never"{}},\ \textcolor{stringliteral}{"{}none"{}},\ \textcolor{stringliteral}{"{}nope"{}},\ \textcolor{stringliteral}{"{}nor"{}},\ \textcolor{stringliteral}{"{}not"{}},\ \textcolor{stringliteral}{"{}nothing"{}},\ \textcolor{stringliteral}{"{}nowhere"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}oughtnt"{}},\ \textcolor{stringliteral}{"{}shant"{}},\ \textcolor{stringliteral}{"{}shouldnt"{}},\ \textcolor{stringliteral}{"{}uhuh"{}},\ \textcolor{stringliteral}{"{}wasnt"{}},\ \textcolor{stringliteral}{"{}werent"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}oughtn't"{}},\ \textcolor{stringliteral}{"{}shan't"{}},\ \textcolor{stringliteral}{"{}shouldn't"{}},\ \textcolor{stringliteral}{"{}uh-\/uh"{}},\ \textcolor{stringliteral}{"{}wasn't"{}},\ \textcolor{stringliteral}{"{}weren't"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}without"{}},\ \textcolor{stringliteral}{"{}wont"{}},\ \textcolor{stringliteral}{"{}wouldnt"{}},\ \textcolor{stringliteral}{"{}won't"{}},\ \textcolor{stringliteral}{"{}wouldn't"{}},\ \textcolor{stringliteral}{"{}rarely"{}},\ \textcolor{stringliteral}{"{}seldom"{}},\ \textcolor{stringliteral}{"{}despite"{}}\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacevader_af934479c72adafe02dad6afb4d6f67a4}\label{namespacevader_af934479c72adafe02dad6afb4d6f67a4}} 
+\index{vader@{vader}!SENTIMENT\_LADEN\_IDIOMS@{SENTIMENT\_LADEN\_IDIOMS}}
+\index{SENTIMENT\_LADEN\_IDIOMS@{SENTIMENT\_LADEN\_IDIOMS}!vader@{vader}}
+\doxysubsubsection{\texorpdfstring{SENTIMENT\_LADEN\_IDIOMS}{SENTIMENT\_LADEN\_IDIOMS}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$String, double$>$ vader\+::\+SENTIMENT\+\_\+\+LADEN\+\_\+\+IDIOMS\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{\ \{\textcolor{stringliteral}{"{}cut\ the\ mustard"{}},\ 2\},\ \{\textcolor{stringliteral}{"{}hand\ to\ mouth"{}},\ -\/2\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}back\ handed"{}},\ -\/2\},\ \{\textcolor{stringliteral}{"{}blow\ smoke"{}},\ -\/2\},\ \{\textcolor{stringliteral}{"{}blowing\ smoke"{}},\ -\/2\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}upper\ hand"{}},\ 1\},\ \{\textcolor{stringliteral}{"{}break\ a\ leg"{}},\ 2\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}cooking\ with\ gas"{}},\ 2\},\ \{\textcolor{stringliteral}{"{}in\ the\ black"{}},\ 2\},\ \{\textcolor{stringliteral}{"{}in\ the\ red"{}}\ ,\ -\/2\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}on\ the\ ball"{}},\ 2\},\ \{\textcolor{stringliteral}{"{}under\ the\ weather"{}},\ -\/2\}\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacevader_af55e1e19f2fa33aeeba609c58357560f}\label{namespacevader_af55e1e19f2fa33aeeba609c58357560f}} 
+\index{vader@{vader}!SPECIAL\_CASES@{SPECIAL\_CASES}}
+\index{SPECIAL\_CASES@{SPECIAL\_CASES}!vader@{vader}}
+\doxysubsubsection{\texorpdfstring{SPECIAL\_CASES}{SPECIAL\_CASES}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$String, double$>$ vader\+::\+SPECIAL\+\_\+\+CASES\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{\{\textcolor{stringliteral}{"{}the\ shit"{}},\ 3\},\ \{\textcolor{stringliteral}{"{}the\ bomb"{}},\ 3\},\ \{\textcolor{stringliteral}{"{}bad\ ass"{}},\ 1.5\},\ \{\textcolor{stringliteral}{"{}badass"{}},\ 1.5\},\ \{\textcolor{stringliteral}{"{}bus\ stop"{}},\ 0.0\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}yeah\ right"{}},\ -\/2\},\ \{\textcolor{stringliteral}{"{}kiss\ of\ death"{}},\ -\/1.5\},\ \{\textcolor{stringliteral}{"{}to\ die\ for"{}},\ 3\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}beating\ heart"{}},\ 3.1\},\ \{\textcolor{stringliteral}{"{}broken\ heart"{}},\ -\/2.9\}\}}
+
+\end{DoxyCode}
